@@ -3,7 +3,80 @@
   --orange: #DE8667;
   --alternative: #EFB467;
 }
+nav{
+  padding-top: 46px;
+  padding-left: 25px;
+  padding-right: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.circle{
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+  border: none;
+}
+
+.profile-photo-circle{
+  background-image: url('/public/pictures/profile-photo.png');
+  background-position: center;
+}
+.add-quote-circle{
+  background-image: url('/public/pictures/add-button-white.png');
+}
+
+.profile-nav{
+  background-color: var(--orange);
+}
+
+.nav-right{
+  float: right;
+}
+
+.nav-link-profile{
+  color: white;
+  text-decoration: none;
+}
+
+.nav-link{
+  color: var(--orange);
+  text-decoration: none;
+}
 
 .logo{
-  height: 1.5rem;
+  padding-top: 10.5px;
+  width: 115.76px;
+  height: 23.5px;
+}
+
+.list{
+  display: flex;
+  list-style: none;
+  font-size: 16px;
+  align-items: center;
+}
+
+.button{
+  border-radius: 100px;
+}
+
+.signup-button{
+  width: 137px;
+  height: 40px;
+  margin-right: 31px;
+  border: none;
+  background-color: var(--orange);
+  color: white;
+}
+
+.login-button{
+  width: 137px;
+  height: 40px;
+  margin-right: 65px;
+  outline: 100px,;
+  border-style: solid;
+  border-color: var(--orange) !important;
+  color: var(--orange);
 }

@@ -10,51 +10,111 @@ const Nav = (props: {user: User}) => {
     }
 
     return(
-        <nav>
-            <ul>
+        <>
                 {props.user.email == '' ? //user is not logged in
                 <>
-                    <img src="/pictures/logo.png" alt="logo" className="logo" />
-                    <Link to={'/profile'} className="">
-                        {props.user.name}
-                    </Link>
-                    <Link to={'/logout'} className="" onClick={logout}>
-                        Sign out
-                    </Link> 
-                </>    
+                    <nav>
+                        <img src="/pictures/logo-black.png" alt="logo" className="logo" />
+                        <div className="nav-right">
+                            <Link to={'/signup'}>
+                                <button className="button signup-button"> Sign up </button>
+                            </Link>
+                            <Link to={'/login'}>
+                                <button className="button login-button"> Log in </button>
+                            </Link> 
+                        </div>
+                    </nav>    
+                </>
 
                 :window.location.href == 'url for signup' ? //user is on page signup
                 <>
-                    <Link to={'/profile'} className="">
-                        {props.user.name}
-                    </Link>
-                    <Link to={'/logout'} className="" onClick={logout}>
-                        Sign out
-                    </Link> 
+                    <nav>
+                        <img src="/pictures/logo-black.png" alt="logo" className="logo" />
+                        <div className="nav-right">
+                            <Link to={'/login'}>
+                                <button className="button login-button"> Log in </button>
+                            </Link> 
+                        </div>
+                    </nav>    
                 </>    
 
                 :window.location.href == 'url for login' ? //user is on page login
                 <>
-                    <Link to={'/profile'} className="">
-                        {props.user.name}
-                    </Link>
-                    <Link to={'/logout'} className="" onClick={logout}>
-                        Sign out
-                    </Link> 
+                    <nav>
+                        <img src="/pictures/logo-black.png" alt="logo" className="logo" />
+                        <div className="nav-right">
+                            <Link to={'/signup'}>
+                                <button className="button signup-button"> Sign up </button>
+                            </Link>
+                        </div>
+                    </nav>
                 </>    
 
+                :window.location.href == 'url for profile' ? //user is on profile page
+                <>  
+                    <nav className="profile-nav">
+                        <img src="/pictures/logo-white.png" alt="logo" className="logo" />
+                        <div className="nav-right">
+                            <ul className="list">
+                                <li>
+                                    <Link to={'/'} className="nav-link-profile">
+                                        <p>Home</p>
+                                    </Link>
+                                </li>
+                                <li style={{padding:'0 24px'}}>
+                                    <Link to={'/settings'} className="nav-link-profile">
+                                        <p>Settings</p>
+                                    </Link>
+                                </li>
+                                <li>
+                                    <Link to={'/logout'} className="nav-link-profile">
+                                        <p>Logout</p>
+                                    </Link>
+                                </li>
+                                <li style={{padding:'0 16px 0 32px'}}>
+                                    <button className="circle profile-photo-circle"></button>
+                                </li>
+                                <li>
+                                    <button className="circle add-quote-circle"></button>
+                                </li>
+                            </ul>
+                        </div>
+                    </nav>
+                </> 
+
                 : //user is logged in
-                <>
-                    <Link to={'/profile'} className="">
-                        {props.user.name}
-                    </Link>
-                    <Link to={'/logout'} className="" onClick={logout}>
-                        Sign out
-                    </Link> 
-                </>    
+                <>  
+                    <nav className="profile-nav">
+                        <img src="/pictures/logo-black.png" alt="logo" className="logo" />
+                        <div className="nav-right">
+                            <ul className="list">
+                                <li>
+                                    <Link to={'/'} className="nav-link">
+                                        <p>Home</p>
+                                    </Link>
+                                </li>
+                                <li style={{padding:'0 24px'}}>
+                                    <Link to={'/settings'} className="nav-link">
+                                        <p>Settings</p>
+                                    </Link>
+                                </li>
+                                <li>
+                                    <Link to={'/logout'} className="nav-link">
+                                        <p>Logout</p>
+                                    </Link>
+                                </li>
+                                <li style={{padding:'0 16px 0 32px'}}>
+                                    <button className="circle profile-photo-circle"></button>
+                                </li>
+                                <li>
+                                    <button className="circle add-quote-circle"></button>
+                                </li>
+                            </ul>
+                        </div>
+                    </nav>
+                </>   
                 }
-            </ul>
-        </nav>    
+        </>    
     )
 }
 

@@ -30,7 +30,6 @@ const LandingPage = () => {
 
     //user is not logged in
     return (
-
       <Wrapper>  
         <h2>Daily Sales</h2>
         <div id='chart'/>

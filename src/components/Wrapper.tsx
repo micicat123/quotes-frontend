@@ -26,18 +26,16 @@ const Wrapper = (props:any) => {
               }
           }
       )();
-  }, []);
+    }, []);
 
     return (
       <>
         <Nav user={user}/>
 
         <div className="">
-          <div className="">
-              <main className="">
-                  {props.children}
-              </main>
-          </div>
+            <main className="">
+                {props.children}
+            </main>
         </div>
       </>
     )

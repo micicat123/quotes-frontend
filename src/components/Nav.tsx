@@ -10,31 +10,51 @@ const Nav = (props: {user: User}) => {
     }
 
     return(
-        <nav className="">
-            {props.user.email == '' ? //user is not logged in
-                <a></a> 
+        <nav>
+            <ul>
+                {props.user.email == '' ? //user is not logged in
+                <>
+                    <img src="/pictures/logo.png" alt="logo" className="logo" />
+                    <Link to={'/profile'} className="">
+                        {props.user.name}
+                    </Link>
+                    <Link to={'/logout'} className="" onClick={logout}>
+                        Sign out
+                    </Link> 
+                </>    
 
-            :window.location.href == 'url for signup' ? //user is on page signup
-                <a></a>
+                :window.location.href == 'url for signup' ? //user is on page signup
+                <>
+                    <Link to={'/profile'} className="">
+                        {props.user.name}
+                    </Link>
+                    <Link to={'/logout'} className="" onClick={logout}>
+                        Sign out
+                    </Link> 
+                </>    
 
-            :window.location.href == 'url for login' ? //user is on page login
-                <a></a>
+                :window.location.href == 'url for login' ? //user is on page login
+                <>
+                    <Link to={'/profile'} className="">
+                        {props.user.name}
+                    </Link>
+                    <Link to={'/logout'} className="" onClick={logout}>
+                        Sign out
+                    </Link> 
+                </>    
 
-            : //user is logged in
-                <a ></a>
-            }
-            
-            <a className="" href="">Company name</a>
-
-            <ul className="">
-                <Link to={'/profile'} className="">
-                    {props.user.name}
-                </Link>
-                <Link to={'/logout'} className="" onClick={logout}>
-                    Sign out
-                </Link>
+                : //user is logged in
+                <>
+                    <Link to={'/profile'} className="">
+                        {props.user.name}
+                    </Link>
+                    <Link to={'/logout'} className="" onClick={logout}>
+                        Sign out
+                    </Link> 
+                </>    
+                }
             </ul>
-        </nav>
+        </nav>    
     )
 }
 

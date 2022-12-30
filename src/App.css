@@ -65,6 +65,11 @@ p{
   margin: auto;
 }
 
+.alternative-text{
+  color: var(--alternative);
+  text-decoration: none;
+}
+
 /* NAVBAR */
 nav{
   padding-top: 48px;
@@ -194,4 +199,59 @@ nav{
 .second-flex-item{
   margin-top: 195px;
   margin-right: 139px;
+}
+
+
+/* LOGIN */
+.login-div{
+  display: flex;
+  gap: 16px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.login-text{
+  height: 114px;
+  width: 420px;
+}
+
+.login-heading{
+  margin-bottom: 8px;
+  text-align: center;
+  font-weight: bold;
+}
+
+.login-paragraph{
+  margin-top: 0;
+  text-align: center;
+}
+
+.login-form{
+  margin-top: 16px;
+}
+
+.label-text{
+  margin-bottom: 0;
+  font-size: 14px;
+}
+
+input{
+  border-radius: 100px;
+  background-color: white !important;
+  border: 2px solid var(--orange);
+  padding: 10px;
+  width: 420px;
+  box-sizing: border-box;
+}
+
+.submit-button{
+  margin-top: 16px;
+  font-size: 16px;
+  font-family: 'Raleway';
+  color: var(--orange);
+}
+
+.right-text{
+  float: right;
 }

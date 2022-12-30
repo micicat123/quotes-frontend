@@ -76,7 +76,6 @@ nav{
 .login-button{
   width: 137px;
   height: 40px;
-  margin-right: 65px;
   outline: 100px,;
   border-style: solid;
   border-color: var(--orange) !important;

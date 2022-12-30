@@ -14,7 +14,7 @@ const Wrapper = (props:any) => {
       (
           async () =>{
               try{
-                  const {data} = await axios.get('/user'); //get authenticated user by jwt token 
+                  const {data} = await axios.get('/auth/user'); //get authenticated user by jwt token 
                   setUser(new User(
                     data.user_id,
                     data.first_name,  

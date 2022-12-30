@@ -17,10 +17,10 @@ const Nav = (props: {user: User}) => {
                         <img src="/pictures/logo-black.png" alt="logo" className="logo" />
                         <div className="nav-right">
                             <Link to={'/signup'}>
-                                <button className="button signup-button"> Sign up </button>
+                                <button className="button signup-button"> <p className="button-text">Sign up</p> </button>
                             </Link>
                             <Link to={'/login'}>
-                                <button className="button login-button"> Log in </button>
+                                <button className="button login-button"> <p className="button-text">Log in</p> </button>
                             </Link> 
                         </div>
                     </nav>    
@@ -32,7 +32,7 @@ const Nav = (props: {user: User}) => {
                         <img src="/pictures/logo-black.png" alt="logo" className="logo" />
                         <div className="nav-right">
                             <Link to={'/login'}>
-                                <button className="button login-button"> Log in </button>
+                                <button className="button login-button"> <p className="button-text">Log in</p> </button>
                             </Link> 
                         </div>
                     </nav>    
@@ -44,7 +44,7 @@ const Nav = (props: {user: User}) => {
                         <img src="/pictures/logo-black.png" alt="logo" className="logo" />
                         <div className="nav-right">
                             <Link to={'/signup'}>
-                                <button className="button signup-button"> Sign up </button>
+                                <button className="button signup-button"> <p className="button-text">Sign up</p> </button>
                             </Link>
                         </div>
                     </nav>

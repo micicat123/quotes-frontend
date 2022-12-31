@@ -228,7 +228,7 @@ nav{
 }
 
 .login-form{
-  margin-top: 16px;
+  margin-top: 32px;
 }
 
 .label-text{
@@ -254,4 +254,20 @@ input{
 
 .right-text{
   float: right;
+}
+
+
+/* REGISTER */
+.register-photo{
+  height: 64px;
+  width: 64px;
+}
+
+.name-surname{
+  display: flex;
+  gap: 16px;
+}
+
+.name-input{
+  width: 202px;
 }

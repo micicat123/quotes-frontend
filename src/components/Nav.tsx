@@ -26,7 +26,7 @@ const Nav = (props: {user: User}) => {
                     </nav>    
                 </>
 
-                :window.location.href == 'url for signup' ? //user is on page signup
+                :window.location.href == 'http://localhost:3000/signup' ? //user is on page signup
                 <>
                     <nav>
                         <img src="/pictures/logo-black.png" alt="logo" className="logo" />
@@ -38,7 +38,7 @@ const Nav = (props: {user: User}) => {
                     </nav>    
                 </>    
 
-                :window.location.href == 'url for login' ? //user is on page login
+                :window.location.href == 'http://localhost:3000/login' ? //user is on page login
                 <>
                     <nav>
                         <img src="/pictures/logo-black.png" alt="logo" className="logo" />
@@ -50,7 +50,7 @@ const Nav = (props: {user: User}) => {
                     </nav>
                 </>    
 
-                :window.location.href == 'url for profile' ? //user is on profile page
+                :window.location.href == 'http://localhost:3000/profile' ? //user is on profile page
                 <>  
                     <nav className="profile-nav">
                         <img src="/pictures/logo-white.png" alt="logo" className="logo" />
@@ -58,17 +58,17 @@ const Nav = (props: {user: User}) => {
                             <ul className="list">
                                 <li>
                                     <Link to={'/'} className="nav-link-profile">
-                                        <p>Home</p>
+                                        <p className="profile-list">Home</p>
                                     </Link>
                                 </li>
                                 <li style={{padding:'0 24px'}}>
                                     <Link to={'/settings'} className="nav-link-profile">
-                                        <p>Settings</p>
+                                        <p className="profile-list">Settings</p>
                                     </Link>
                                 </li>
                                 <li>
                                     <Link to={'/logout'} className="nav-link-profile">
-                                        <p>Logout</p>
+                                        <p className="profile-list">Logout</p>
                                     </Link>
                                 </li>
                                 <li style={{padding:'0 16px 0 32px'}}>
@@ -84,7 +84,7 @@ const Nav = (props: {user: User}) => {
 
                 : //user is logged in
                 <>  
-                    <nav className="profile-nav">
+                    <nav>
                         <img src="/pictures/logo-black.png" alt="logo" className="logo" />
                         <div className="nav-right">
                             <ul className="list">

@@ -75,6 +75,7 @@ nav{
   padding-top: 48px;
   padding-left: 70px;
   padding-right: 70px;
+  height: 40px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -99,12 +100,15 @@ nav{
   background-color: var(--orange);
 }
 
+.profile-list{
+  color: white;
+}
+
 .nav-right{
   float: right;
 }
 
 .nav-link-profile{
-  color: white;
   text-decoration: none;
 }
 

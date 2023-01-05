@@ -59,9 +59,12 @@ const LandingPage = () => {
         <div className='index-div2'>
             <h2 className='explore-heading centered-text'>Explore the world of <span className='orange-text'>fantastic quotes</span></h2>
         </div>
-            <h4 className="orange-text centered-text">Most upvoted quote</h4>
+            <h4 className="orange-text centered-text">Most upvoted quotes</h4>
             <p className="centered-text  p-under-h4">Most upvoted quotes on the platform. Sign up or login to like the quotes and keep them saved in your profile</p>
-        <MostUpvotedQuotes/>
+        <MostUpvotedQuotes NeedToLoadMore={false}/>
+        <div className='center-div'>
+            <button className='button signup-button-wide'>Sign up to see more</button>
+        </div>
       </Wrapper>
     )
 }

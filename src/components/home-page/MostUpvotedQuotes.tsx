@@ -68,7 +68,7 @@ upvotes: 1
                                     <i className="down-arrow arrow"></i>
                                 
                                 </div>
-                                <div>
+                                <div className="quote">
                                     <div>
                                         <p>{quote.quote}</p>
                                     </div>

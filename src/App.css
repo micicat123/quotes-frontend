@@ -232,7 +232,7 @@ nav{
   width: 1300px;
   margin-left: auto;
   margin-right: auto;
-  margin-bottom: 46px;
+  margin-bottom: 33px;
 }
 
 .quote-card{
@@ -273,8 +273,23 @@ nav{
   margin-left: 16px;
 }
 
+.quote{
+  display: flex;
+}
+
 .center-div{
   text-align: center;
+}
+
+.quote-author{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.profile-photo-small{
+  height: 24px;
+  width: 24px;
 }
 
 .signup-button-wide{

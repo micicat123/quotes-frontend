@@ -62,9 +62,6 @@ const LandingPage = () => {
             <h4 className="orange-text centered-text">Most upvoted quotes</h4>
             <p className="centered-text  p-under-h4">Most upvoted quotes on the platform. Sign up or login to like the quotes and keep them saved in your profile</p>
         <MostUpvotedQuotes NeedToLoadMore={false}/>
-        <div className='center-div'>
-            <button className='button signup-button-wide'>Sign up to see more</button>
-        </div>
       </Wrapper>
     )
 }

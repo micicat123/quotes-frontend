@@ -27,32 +27,38 @@ quote_id: 2
 score: 1
 upvotes: 1 
     */
+
     console.log(quotes);
     if (props.NeedToLoadMore === false) {
         return(
-            <div className="quotes-layout">
-                {quotes.map((quote: Quote) => {
-                            return(
-                                <div className="quote-card" key={quote.quote_id}>
-                                    <div className="voting">
-                                        <i className="up-arrow arrow"></i>
-                                        <p className="upvotes-number">{quote.upvotes}</p>
-                                        <i className="down-arrow arrow"></i>
-                                    
-                                    </div>
+            <>
+                <div className="quotes-layout">
+                    {quotes.map((quote: Quote) => {
+                        return (
+                            <div className="quote-card" key={quote.quote_id}>
+                                <div className="voting">
+                                    <i className="up-arrow arrow"></i>
+                                    <p className="upvotes-number">{quote.upvotes}</p>
+                                    <i className="down-arrow arrow"></i>
+
+                                </div>
+                                <div>
                                     <div>
-                                        <div>
-                                            <p>{quote.quote}</p>
-                                        </div>
-                                        <div className="quote-author">
-                                            <img src="/pictures/profile-photo.png" alt="Image" className="profile-photo-small"/>
-                                            <p className="caption">{quote.user.first_name} {quote.user.last_name}</p>
-                                        </div>
+                                        <p>{quote.quote}</p>
+                                    </div>
+                                    <div className="quote-author">
+                                        <img src="/pictures/profile-photo.png" alt="Image" className="profile-photo-small" />
+                                        <p className="caption">{quote.user.first_name} {quote.user.last_name}</p>
                                     </div>
                                 </div>
-                            )
-                })}
-            </div>
+                            </div>
+                        );
+                    })}
+                </div>
+                <div className='center-div'>
+                    <a href="/signup"><button className='button signup-button-wide'>Sign up to see more</button></a>
+                </div>
+            </>
         )              
     }
 
@@ -68,27 +74,6 @@ upvotes: 1
                                 
                                 </div>
                                 <div className="quote">
-                                    <div>
-                                        <p>{quote.quote}</p>
-                                    </div>
-                                    <div className="quote-author">
-                                        <img src="/pictures/profile-photo.png" alt="Image" className="profile-photo-small"/>
-                                        <p className="caption">{quote.user.first_name} {quote.user.last_name}</p>
-                                    </div>
-                                </div>
-                            </div>
-                        )
-            })}
-            {quotes.map((quote :Quote) => {
-                        return(
-                            <div className="quote-card" key={quote.quote_id}>
-                                <div className="voting">
-                                    <i className="up-arrow arrow"></i>
-                                    <p className="upvotes-number">{quote.upvotes}</p>
-                                    <i className="down-arrow arrow"></i>
-                                
-                                </div>
-                                <div>
                                     <div>
                                         <p>{quote.quote}</p>
                                     </div>

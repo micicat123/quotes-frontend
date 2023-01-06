@@ -243,6 +243,7 @@ nav{
   align-items: center;
   padding: 16px 32px 16px 16px;
   gap: 21px;
+  page-break-inside: avoid;
   margin-bottom: 19px;
 }
 

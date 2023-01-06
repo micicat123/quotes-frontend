@@ -5,16 +5,14 @@ import { Quote } from "../../models/quote";
 
 const MostUpvotedQuotes = (props: any) => {
     const [page, setPage] = useState(1);
-    const [newQuotes, setNewQuotes] = useState([]);
-    const [oldQuotes, setOldQuotes] = useState([]);
+    const [quotes, setQuotes] = useState<any>([]);
 
     useEffect(() => {
 
-        setOldQuotes([...oldQuotes, ...newQuotes]);
 
         axios.get(`/quote/${page}`)
         .then(response => {
-            setNewQuotes(response.data);
+            setQuotes(quotes.concat(response.data).sort((a: { score: number; },b: { score: number; }) => (a.score > b.score) ? 1 : ((b.score > a.score) ? -1 : 0)));
         })
         .catch(error => {
           console.error(error);
@@ -27,12 +25,13 @@ downvotes: 0
 quote: "Everything is in our mind!"
 quote_id: 2
 score: 1
-upvotes: 1
+upvotes: 1 
     */
+    console.log(quotes);
     if (props.NeedToLoadMore === false) {
         return(
             <div className="quotes-layout">
-                {newQuotes.map((quote :Quote) => {
+                {quotes.map((quote: Quote) => {
                             return(
                                 <div className="quote-card" key={quote.quote_id}>
                                     <div className="voting">
@@ -59,7 +58,7 @@ upvotes: 1
 
     return(
         <div className="quotes-layout">
-            {oldQuotes.map((quote :Quote) => {
+            {quotes.map((quote :Quote) => {
                         return(
                             <div className="quote-card" key={quote.quote_id}>
                                 <div className="voting">
@@ -80,7 +79,7 @@ upvotes: 1
                             </div>
                         )
             })}
-            {newQuotes.map((quote :Quote) => {
+            {quotes.map((quote :Quote) => {
                         return(
                             <div className="quote-card" key={quote.quote_id}>
                                 <div className="voting">

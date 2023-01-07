@@ -7,6 +7,7 @@ import MostUpvotedQuotes from '../components/home-page/MostUpvotedQuotes';
 const LandingPage = () => {
 
     const [loggedIn, setLoggedin] = useState(false);
+    const [randomQuote, setRandomQuote] = useState({});
 
     useEffect(() => {
         (
@@ -14,6 +15,10 @@ const LandingPage = () => {
                 try{
                     await axios.get('/auth/user'); //get authenticated user by jwt token 
                     setLoggedin(true);
+
+                    setRandomQuote(axios.get('/quote/random'))
+
+                    
                 }catch(err){
                     console.log(err);
                 }
@@ -21,22 +26,16 @@ const LandingPage = () => {
         )();
       }, []);
 
+    console.log(randomQuote);
     //user is logged in  
     if (loggedIn){
         return(
             <Wrapper>  
-                <div className='index-div'>
-                    <div className='first-flex-item'>
-                        <h1 className='welcome-heading'>Welcome<br/> to <span className='orange-text'>Quotastic</span></h1>
-                        <h5 className='welcome-paragraph'>Quotastic is free online platform for you to explore the  quips, quotes, and proverbs. Sign up and express yourself.</h5>
-                        <Link to={'/signup'}>
-                            <button className="button signup-button"> <p  className='button-text'>Sign up</p></button>
-                        </Link>  
-                    </div> 
-                    <div className='second-flex-item'>
-                        <img src="/pictures/quotes-home.png" alt="Image"/>
-                    </div>             
-                </div>
+                <>
+                    <h4 className="orange-text centered-text">Quote of the day</h4>
+                    <p className="centered-text  p-under-h4">Quote of the day is randomly choosen quote.</p>           
+                </>
+                <MostUpvotedQuotes NeedToLoadMore={true}/>
             </Wrapper>
         )
     }
@@ -59,8 +58,6 @@ const LandingPage = () => {
         <div className='index-div2'>
             <h2 className='explore-heading centered-text'>Explore the world of <span className='orange-text'>fantastic quotes</span></h2>
         </div>
-            <h4 className="orange-text centered-text">Most upvoted quotes</h4>
-            <p className="centered-text  p-under-h4">Most upvoted quotes on the platform. Sign up or login to like the quotes and keep them saved in your profile</p>
         <MostUpvotedQuotes NeedToLoadMore={false}/>
       </Wrapper>
     )

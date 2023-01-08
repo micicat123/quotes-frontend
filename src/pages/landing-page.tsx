@@ -7,7 +7,7 @@ import MostUpvotedQuotes from '../components/home-page/MostUpvotedQuotes';
 const LandingPage = () => {
 
     const [loggedIn, setLoggedin] = useState(false);
-    const [randomQuote, setRandomQuote] = useState({});
+    const [randomQuote, setRandomQuote] = useState<any>([]);
 
     useEffect(() => {
         (
@@ -16,8 +16,7 @@ const LandingPage = () => {
                     await axios.get('/auth/user'); //get authenticated user by jwt token 
                     setLoggedin(true);
 
-                    setRandomQuote(axios.get('/quote/random'))
-
+                    setRandomQuote((await axios.get('/quote/random')).data);
                     
                 }catch(err){
                     console.log(err);
@@ -33,7 +32,24 @@ const LandingPage = () => {
             <Wrapper>  
                 <>
                     <h4 className="orange-text centered-text">Quote of the day</h4>
-                    <p className="centered-text  p-under-h4">Quote of the day is randomly choosen quote.</p>           
+                    <p className="centered-text  p-under-h4">Quote of the day is randomly choosen quote.</p> 
+
+                    <div className="quote-card">
+                        <div className="voting">
+                            <i className="up-arrow arrow"></i>
+                            <p className="upvotes-number">{randomQuote.upvotes}</p>
+                            <i className="down-arrow arrow"></i>
+                        </div>
+                        <div>
+                            <div>
+                                <p>{randomQuote.quote}</p>
+                            </div>
+                            <div className="quote-author">
+                                <img src="/pictures/profile-photo.png" alt="Image" className="profile-photo-small" />
+                                <p className="caption">{randomQuote.user.first_name} {randomQuote.user.last_name}</p>
+                            </div>
+                        </div>
+                    </div>
                 </>
                 <MostUpvotedQuotes NeedToLoadMore={true}/>
             </Wrapper>

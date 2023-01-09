@@ -232,7 +232,7 @@ nav{
   width: 1300px;
   margin-left: auto;
   margin-right: auto;
-  margin-bottom: 33px;
+  margin-bottom: 48px;
 }
 
 .quote-card{
@@ -245,6 +245,14 @@ nav{
   gap: 21px;
   page-break-inside: avoid;
   margin-bottom: 19px;
+  width: 372px;
+}
+
+.random-quote-card{
+  width: 372px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 127px;
 }
 
 .arrow{
@@ -274,10 +282,6 @@ nav{
   margin-left: 16px;
 }
 
-.quote{
-  display: flex;
-}
-
 .center-div{
   text-align: center;
 }
@@ -291,6 +295,17 @@ nav{
 .profile-photo-small{
   height: 24px;
   width: 24px;
+}
+
+.load-more-button{
+  width: 148px;
+  height: 40px;
+  outline: 100px,;
+  border-style: solid;
+  background-color: white;
+  border-color: var(--orange) !important;
+  color: var(--orange);
+  margin-bottom: 128px;
 }
 
 .signup-button-wide{

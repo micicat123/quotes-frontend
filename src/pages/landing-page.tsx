@@ -7,7 +7,12 @@ import MostUpvotedQuotes from '../components/home-page/MostUpvotedQuotes';
 const LandingPage = () => {
 
     const [loggedIn, setLoggedin] = useState(false);
-    const [randomQuote, setRandomQuote] = useState<any>([]);
+    const [randomQuote, setRandomQuote] = useState<any>({
+        user: {
+            first_name: '',
+            last_name: ''
+        }
+    });
 
     useEffect(() => {
         (
@@ -25,7 +30,7 @@ const LandingPage = () => {
         )();
       }, []);
 
-    console.log(randomQuote);
+    console.log();
     //user is logged in  
     if (loggedIn){
         return(
@@ -34,7 +39,7 @@ const LandingPage = () => {
                     <h4 className="orange-text centered-text">Quote of the day</h4>
                     <p className="centered-text  p-under-h4">Quote of the day is randomly choosen quote.</p> 
 
-                    <div className="quote-card">
+                    <div className="quote-card random-quote-card" key={randomQuote.quote_id}>
                         <div className="voting">
                             <i className="up-arrow arrow"></i>
                             <p className="upvotes-number">{randomQuote.upvotes}</p>

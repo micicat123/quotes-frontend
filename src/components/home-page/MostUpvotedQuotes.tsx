@@ -19,14 +19,10 @@ const MostUpvotedQuotes = (props: any) => {
         });
       }, []);
 
-    /*
-created_at: "2022-12-25T16:07:24.916Z"
-downvotes: 0
-quote: "Everything is in our mind!"
-quote_id: 2
-score: 1
-upvotes: 1 
-    */
+    function loadMore(){
+        setPage(page +1);
+        console.log(page)
+    }
 
     if (props.NeedToLoadMore === false) {
         return(
@@ -42,7 +38,6 @@ upvotes: 1
                                     <i className="up-arrow arrow"></i>
                                     <p className="upvotes-number">{quote.upvotes}</p>
                                     <i className="down-arrow arrow"></i>
-
                                 </div>
                                 <div>
                                     <div>
@@ -71,27 +66,29 @@ upvotes: 1
                 
             <div className="quotes-layout">
                 {quotes.map((quote :Quote) => {
-                            return(
-                                <div className="quote-card" key={quote.quote_id}>
-                                    <div className="voting">
-                                        <i className="up-arrow arrow"></i>
-                                        <p className="upvotes-number">{quote.upvotes}</p>
-                                        <i className="down-arrow arrow"></i>
-                                    
-                                    </div>
-                                    <div className="quote">
-                                        <div>
-                                            <p>{quote.quote}</p>
-                                        </div>
-                                        <div className="quote-author">
-                                            <img src="/pictures/profile-photo.png" alt="Image" className="profile-photo-small"/>
-                                            <p className="caption">{quote.user.first_name} {quote.user.last_name}</p>
-                                        </div>
-                                    </div>
+                    return(
+                        <div className="quote-card" key={quote.quote_id}>
+                            <div className="voting">
+                                <i className="up-arrow arrow"></i>
+                                <p className="upvotes-number">{quote.upvotes}</p>
+                                <i className="down-arrow arrow"></i>                    
+                            </div>
+                            <div>
+                                <div>
+                                    <p>{quote.quote}</p>
                                 </div>
-                            )
+                                <div className="quote-author">
+                                    <img src="/pictures/profile-photo.png" alt="Image" className="profile-photo-small"/>
+                                    <p className="caption">{quote.user.first_name} {quote.user.last_name}</p>
+                                </div>
+                            </div>
+                        </div>
+                    )
                 })}
-            </div>   
+            </div> 
+            <div className='center-div'>
+                <button onClick={loadMore} className='button load-more-button'>Load more</button>
+            </div>  
         </>
     )
 }

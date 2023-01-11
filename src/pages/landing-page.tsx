@@ -3,6 +3,7 @@ import Wrapper from '../components/Wrapper';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 import MostUpvotedQuotes from '../components/home-page/MostUpvotedQuotes';
+import MostRecentQuotes from '../components/home-page/MostRecentQuotes';
 
 const LandingPage = () => {
 
@@ -57,6 +58,7 @@ const LandingPage = () => {
                     </div>
                 </>
                 <MostUpvotedQuotes NeedToLoadMore={true}/>
+                <MostRecentQuotes/>
             </Wrapper>
         )
     }

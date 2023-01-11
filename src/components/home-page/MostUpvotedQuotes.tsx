@@ -17,11 +17,10 @@ const MostUpvotedQuotes = (props: any) => {
         .catch(error => {
           console.error(error);
         });
-      }, []);
+      }, [page]);
 
     function loadMore(){
-        setPage(page +1);
-        console.log(page)
+        setPage(page + 1);
     }
 
     if (props.NeedToLoadMore === false) {

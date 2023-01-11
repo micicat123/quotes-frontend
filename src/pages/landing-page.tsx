@@ -2,41 +2,63 @@ import React, { Component, useEffect, useState } from 'react';
 import Wrapper from '../components/Wrapper';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
+import MostUpvotedQuotes from '../components/home-page/MostUpvotedQuotes';
+import MostRecentQuotes from '../components/home-page/MostRecentQuotes';
 
 const LandingPage = () => {
 
     const [loggedIn, setLoggedin] = useState(false);
-
+    const [randomQuote, setRandomQuote] = useState<any>({
+        user: {
+            first_name: '',
+            last_name: ''
+        }
+    });
 
     useEffect(() => {
         (
             async () =>{
                 try{
-                    const {data} = await axios.get('/auth/user'); //get authenticated user by jwt token 
+                    await axios.get('/auth/user'); //get authenticated user by jwt token 
                     setLoggedin(true);
+
+                    setRandomQuote((await axios.get('/quote/random')).data);
+                    
                 }catch(err){
-                    console.log("User is not logged in.");
+                    console.log(err);
                 }
             }
         )();
       }, []);
 
+    console.log();
     //user is logged in  
     if (loggedIn){
         return(
             <Wrapper>  
-                <div className='index-div'>
-                    <div className='first-flex-item'>
-                        <h1 className='welcome-heading'>Welcome<br/> to <span className='orange-text'>Quotastic</span></h1>
-                        <h5 className='welcome-paragraph'>Quotastic is free online platform for you to explore the  quips, quotes, and proverbs. Sign up and express yourself.</h5>
-                        <Link to={'/signup'}>
-                            <button className="button signup-button"> <p  className='button-text'>Sign up</p></button>
-                        </Link>  
-                    </div> 
-                    <div className='second-flex-item'>
-                        <img src="/pictures/quotes-home.png" alt="Image"/>
-                    </div>             
-                </div>
+                <>
+                    <h4 className="orange-text centered-text">Quote of the day</h4>
+                    <p className="centered-text  p-under-h4">Quote of the day is randomly choosen quote.</p> 
+
+                    <div className="quote-card random-quote-card" key={randomQuote.quote_id}>
+                        <div className="voting">
+                            <i className="up-arrow arrow"></i>
+                            <p className="upvotes-number">{randomQuote.upvotes}</p>
+                            <i className="down-arrow arrow"></i>
+                        </div>
+                        <div>
+                            <div>
+                                <p>{randomQuote.quote}</p>
+                            </div>
+                            <div className="quote-author">
+                                <img src="/pictures/profile-photo.png" alt="Image" className="profile-photo-small" />
+                                <p className="caption">{randomQuote.user.first_name} {randomQuote.user.last_name}</p>
+                            </div>
+                        </div>
+                    </div>
+                </>
+                <MostUpvotedQuotes NeedToLoadMore={true}/>
+                <MostRecentQuotes/>
             </Wrapper>
         )
     }
@@ -46,7 +68,7 @@ const LandingPage = () => {
       <Wrapper>  
         <div className='index-div'>
             <div className='first-flex-item'>
-                <h1 className='welcome-heading'>Welcome<br/> to <span className='orange-text'>Quotastic</span></h1>
+                <h1 className='welcome-heading'>Welcome to <span className='orange-text'>Quotastic</span></h1>
                 <h5 className='welcome-paragraph'>Quotastic is free online platform for you to explore the  quips, quotes, and proverbs. Sign up and express yourself.</h5>
                 <Link to={'/signup'}>
                     <button className="button signup-button"> <p  className='button-text'>Sign up</p></button>
@@ -56,6 +78,10 @@ const LandingPage = () => {
                 <img src="/pictures/quotes-home.png" alt="Image"/>
             </div>             
         </div>
+        <div className='index-div2'>
+            <h2 className='explore-heading centered-text'>Explore the world of <span className='orange-text'>fantastic quotes</span></h2>
+        </div>
+        <MostUpvotedQuotes NeedToLoadMore={false}/>
       </Wrapper>
     )
 }

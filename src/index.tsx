@@ -5,7 +5,7 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import axios from 'axios';
 
-axios.defaults.baseURL = ('http://localhost:8000/');
+axios.defaults.baseURL = ('http://localhost:8000');
 axios.defaults.withCredentials = true;
 
 const root = ReactDOM.createRoot(
@@ -13,9 +13,9 @@ const root = ReactDOM.createRoot(
 );
 
 root.render(
-  <React.StrictMode>
+  <>
     <App />
-  </React.StrictMode>
+  </>
 );
 
 // If you want to start measuring performance in your app, pass a function

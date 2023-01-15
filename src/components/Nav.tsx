@@ -72,7 +72,9 @@ const Nav = (props: {user: User}) => {
                                     </Link>
                                 </li>
                                 <li style={{padding:'0 16px 0 32px'}}>
-                                    <button className="circle profile-photo-circle"></button>
+                                    <Link to={'/profile'}>
+                                        <button className="circle profile-photo-circle"></button>
+                                    </Link>
                                 </li>
                                 <li>
                                     <button className="circle add-quote-circle"></button>
@@ -104,8 +106,10 @@ const Nav = (props: {user: User}) => {
                                     </Link>
                                 </li>
                                 <li style={{padding:'0 16px 0 32px'}}>
-                                    <button className="circle profile-photo-circle"></button>
-                                </li>
+                                    <Link to={'/profile'}>
+                                        <button className="circle profile-photo-circle"></button>
+                                    </Link>
+                                </li>    
                                 <li>
                                     <button className="circle add-quote-circle"></button>
                                 </li>

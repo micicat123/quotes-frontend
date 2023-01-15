@@ -28,7 +28,9 @@ const MostRecentQuotes = () => {
         <>
             <h4 className="orange-text centered-text">Most upvoted quotes</h4>
             <p className="centered-text  p-under-h4">Most upvoted quotes on the platform. Give a like to the ones you like to keep them saved in your profile.</p>
-            <MappedQuotes quotes = {quotes}/>
+            <div className="quotes-layout">
+                <MappedQuotes quotes = {quotes}/>
+            </div>
             <div className='center-div'>
                 <button onClick={loadMore} className='button load-more-button'>Load more</button>
             </div>  

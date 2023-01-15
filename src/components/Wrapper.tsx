@@ -33,7 +33,7 @@ const Wrapper = (props:any) => {
       <>
         <Nav user={user}/>
           <main className="">
-              {props.children}
+              {props.children}  
           </main>
         <Footer/>
       </>

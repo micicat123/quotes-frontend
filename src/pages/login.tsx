@@ -35,6 +35,7 @@ const Login = () => {
                   id="email" 
                   required
                   onChange={e => setEmail(e.target.value)}
+                  className="input-small"
                 />
                 <br />
 
@@ -44,6 +45,7 @@ const Login = () => {
                   id="password"
                   required
                   onChange={e => setPassword(e.target.value)}
+                  className="input-small"
                 />
                 <br />
 

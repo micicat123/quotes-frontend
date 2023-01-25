@@ -1,7 +1,10 @@
 import axios from "axios";
 import { Component, ReactNode, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import Popup from "reactjs-popup";
 import { User } from "../models/user";
+import Popups from "./pop-ups/All-user-popups";
+import UserSettings from "./pop-ups/User-info-form";
 
 const Nav = (props: {user: User}) => {
     
@@ -11,7 +14,7 @@ const Nav = (props: {user: User}) => {
 
     return(
         <>
-                {props.user.email == '' ? //user is not logged in
+            {props.user.email == '' ? //user is not logged in
                 <>
                     <nav>
                         <img src="/pictures/logo-black.png" alt="logo" className="logo" />
@@ -62,10 +65,8 @@ const Nav = (props: {user: User}) => {
                                     </Link>
                                 </li>
                                 <li style={{padding:'0 24px'}}>
-                                    <Link to={'/settings'} className="nav-link-profile">
-                                        <p className="profile-list">Settings</p>
-                                    </Link>
-                                </li>
+                                    <Popups/>
+                                </li>    
                                 <li>
                                     <Link to={'/logout'} className="nav-link-profile">
                                         <p className="profile-list">Logout</p>
@@ -96,9 +97,7 @@ const Nav = (props: {user: User}) => {
                                     </Link>
                                 </li>
                                 <li style={{padding:'0 24px'}}>
-                                    <Link to={'/settings'} className="nav-link">
-                                        <p>Settings</p>
-                                    </Link>
+                                    <Popups orange={true}/>
                                 </li>
                                 <li>
                                     <Link to={'/logout'} className="nav-link">

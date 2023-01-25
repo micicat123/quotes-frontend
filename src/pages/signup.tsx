@@ -47,6 +47,7 @@ const Signup = () => {
                   id="email" 
                   required
                   onChange={e => setEmail(e.target.value)}
+                  className="input-small"
                 />
                 <br />
                 <div className='name-surname'>
@@ -56,7 +57,7 @@ const Signup = () => {
                       type="text" 
                       id="first-name" 
                       required
-                      className='name-input'
+                      className='name-input input-small'
                       onChange={e => setFirstName(e.target.value)}
                     />
                   </div>
@@ -66,7 +67,7 @@ const Signup = () => {
                       type="text" 
                       id="last-name" 
                       required
-                      className='name-input'
+                      className='name-input input-small'
                       onChange={e => setLastName(e.target.value)}
                     />
                   </div>
@@ -78,6 +79,7 @@ const Signup = () => {
                   id="password"
                   required
                   onChange={e => setPassword(e.target.value)}
+                  className="input-small"
                 />
                 <br />
 
@@ -87,10 +89,11 @@ const Signup = () => {
                   id="password-confirm"
                   required
                   onChange={e => setPasswordConfirm(e.target.value)}
+                  className="input-small"
                 />
                 <br />
 
-                <input type="submit" value="Login" className='submit-button'/>
+                <input type="submit" value="Login" className='login-button'/>
 
                 <p>Dont have account?<span className='right-text'><a href="/signup" className='alternative-text'>Sign up</a></span></p>
             </form>

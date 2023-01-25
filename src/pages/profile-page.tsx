@@ -6,11 +6,12 @@ import MostUpvotedQuotes from '../components/home-page/MostUpvotedQuotes';
 import MostRecentQuotes from '../components/home-page/MostRecentQuotes';
 import { Quote } from '../models/quote';
 import MappedQuotes from '../components/home-page/MappedQuotes';
-import UserSettings from '../components/pop-ups/Profile-settings';
+import UserSettings from '../components/pop-ups/User-info-form';
+import { User } from '../models/user';
 
 const Profilepage = () => {
 
-    const [user, setUser] = useState<any>({});
+    const [user, setUser] = useState<any>(new User());
     const [page, setPage] = useState(1);
     const [quotesUserLiked, setQuotesUserLiked] = useState<any>([]);
     const [usersMostLikedQuotes, setUsersMostLikedQuotes] = useState<any>([]);
@@ -35,7 +36,6 @@ const Profilepage = () => {
 
     function loadMore(){
         setPage(page + 1);
-        <UserSettings/>
     }
 
     console.log();
@@ -76,7 +76,6 @@ const Profilepage = () => {
                     <button onClick={loadMore} className='button load-more-button'>Load more</button>
                 </div>  
             </>
-            <UserSettings/>
         </Wrapper>
     )
 }

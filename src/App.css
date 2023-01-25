@@ -389,6 +389,96 @@ nav{
 }
 
 
+/* PROFILE SETTINGS */
+.profile-settings{
+  width: 525px;
+  background-color: white;
+  box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.15);
+  border-radius: 16px;
+  padding: 32px;
+  border: 2px solid black;
+}
+
+.profile-h4{
+  margin-bottom: 0;
+}
+
+.popup-content{
+  margin-left: auto;
+  margin-right: auto;
+  left: 0;
+  right: 0; 
+}
+
+.input-big{
+  border-radius: 100px;
+  background-color: white !important;
+  border: 2px solid var(--orange);
+  padding: 10px;
+  width: 529px;
+  box-sizing: border-box;
+}
+
+.name-input-big{
+  width: 256.5px;
+}
+
+.yellow-background{
+  background-color: var(--alternative);
+}
+
+.orange-background{
+  background-color: var(--orange);
+}
+
+.medium-button{
+  color: white;
+  margin-top: 16px;
+  font-size: 16px;
+  font-family: 'Raleway';
+  border-radius: 100px;
+  border: none;
+  width: 256.5px;
+  height: 40px;
+}
+
+.submit-button-small{
+  margin-top: 16px;
+  margin-right: 30px;
+  width: 137px;
+  height: 40px;
+  background-color: var(--orange) !important;
+  color: white;
+}
+
+.flex-buttons{
+  align-items: center;
+}
+
+.cancel-text{
+  position: absolute;
+  left: 34%;
+  top: 83%;
+}
+
+
+/* PROFILE SETTINGS CHANGED */
+
+.profile-settings-changed{
+  width: 525px;
+  height: 196px;
+  background-color: white;
+  box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.15);
+  border-radius: 16px;
+  padding: 32px;
+  border: 2px solid black;
+}
+
+.changed-popup{
+  left: auto !important;
+  right: auto !important;
+}
+
 /* LOGIN */
 .login-div{
   display: flex;
@@ -423,7 +513,7 @@ nav{
   font-size: 14px;
 }
 
-input{
+.input-small{
   border-radius: 100px;
   background-color: white !important;
   border: 2px solid var(--orange);

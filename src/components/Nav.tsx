@@ -3,8 +3,8 @@ import { Component, ReactNode, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import Popup from "reactjs-popup";
 import { User } from "../models/user";
-import Popups from "./pop-ups/All-user-popups";
-import UserSettings from "./pop-ups/User-info-form";
+import Popups from "./pop-ups/User-popups/All-user-popups";
+import UserSettings from "./pop-ups/User-popups/User-info-form";
 
 const Nav = (props: {user: User}) => {
     

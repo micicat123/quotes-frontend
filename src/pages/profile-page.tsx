@@ -6,7 +6,7 @@ import MostUpvotedQuotes from '../components/home-page/MostUpvotedQuotes';
 import MostRecentQuotes from '../components/home-page/MostRecentQuotes';
 import { Quote } from '../models/quote';
 import MappedQuotes from '../components/home-page/MappedQuotes';
-import UserSettings from '../components/pop-ups/User-info-form';
+import UserSettings from '../components/pop-ups/User-popups/User-info-form';
 import { User } from '../models/user';
 
 const Profilepage = () => {

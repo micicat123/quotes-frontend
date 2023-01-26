@@ -75,8 +75,8 @@ const UserInfoForm =  (props: {handleData: Function, changepass: Function})  => 
                 </div>
 
                 <div className="name-surname">
-                    <button className="medium-button yellow-background" onClick={() => props.changepass()}>Change password</button>
-                    <button disabled className="medium-button orange-background">Change profile picture</button>
+                    <button type="button" className="medium-button yellow-background" onClick={() => props.changepass()}>Change password</button>
+                    <button type="button" disabled className="medium-button orange-background">Change profile picture</button>
                 </div>
                 
                 <div className="name-surname flex-buttons">

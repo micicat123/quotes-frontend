@@ -3,6 +3,7 @@ import { Component, ReactNode, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import Popup from "reactjs-popup";
 import { User } from "../models/user";
+import CreateOrEditQuote from "./pop-ups/Quote-popups/Create-or-edit-quote";
 import Popups from "./pop-ups/User-popups/All-user-popups";
 import UserSettings from "./pop-ups/User-popups/User-info-form";
 
@@ -78,7 +79,7 @@ const Nav = (props: {user: User}) => {
                                     </Link>
                                 </li>
                                 <li>
-                                    <button className="circle add-quote-circle"></button>
+                                    <CreateOrEditQuote create={true}/>
                                 </li>
                             </ul>
                         </div>
@@ -110,7 +111,7 @@ const Nav = (props: {user: User}) => {
                                     </Link>
                                 </li>    
                                 <li>
-                                    <button className="circle add-quote-circle"></button>
+                                    <CreateOrEditQuote create={true}/>
                                 </li>
                             </ul>
                         </div>

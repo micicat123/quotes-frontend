@@ -11,9 +11,9 @@ const MostUpvotedQuotes = (props: any) => {
     useEffect(() => {
 
 
-        axios.get(`/quote/paginated/${page}`)
+        axios.get(`quote/most-upvoted/${page}`)
         .then(response => {
-            setQuotes(quotes.concat(response.data).sort((b: { score: number; },a: { score: number; }) => (a.score > b.score) ? 1 : ((b.score > a.score) ? -1 : 0)));
+            setQuotes(quotes.concat(response.data));
         })
         .catch(error => {
           console.error(error);

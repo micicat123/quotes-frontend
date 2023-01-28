@@ -10,7 +10,7 @@ const UserPassForm =  (props: {handleData: Function})  => {
     const [password_confirm, setPasswrodconfirm] = useState('');
 
 
-      const submit = async (e: SyntheticEvent) => {
+    const submit = async (e: SyntheticEvent) => {
         e.preventDefault();
         
         await axios.put('/user/update-password', {

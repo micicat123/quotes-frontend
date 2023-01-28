@@ -45,11 +45,11 @@ const UserPopups =  (props:any)  => {
             {/*PASSWORD SETTINGS*/}
             <Popup open={passIsOpen}>
                 <UserPassForm handleData={confirmation}/>
-                <p onClick={() => setPassIsOpen(false)} className="cancel-text">Cancel</p>   
+                <p onClick={() => setPassIsOpen(false)} className="cancel-text-password">Cancel</p>   
             </Popup>
 
             {/*CONFIRMATION*/}
-            <Popup className="changed-popup" open={changedIsOpen}>
+            <Popup open={changedIsOpen}>
                  <div className="profile-settings-changed">
                     <h4 className="profile-h4">Profile <span className="orange-text">settings</span></h4>
                     <p>Your settings are saved</p>         

@@ -60,6 +60,7 @@ p{
   font-size: 12px;
   line-height: 14px;
   letter-spacing: 0.4px;
+  margin: 0;
 }
 
 .button-text{
@@ -258,15 +259,15 @@ nav{
 
 .arrow{
   border: solid black;
-  border-width: 0 3px 3px 0;
+  border-width: 0 2px 2px 0;
   display: inline-block;
-  padding: 3px;  transform: rotate(-135deg);
-
+  padding: 4px;  
+  transform: rotate(-135deg);
+  margin-left: 8px;
 }
 
 .up-arrow{
   transform: rotate(-135deg);
-
 }
 
 .down-arrow{
@@ -274,17 +275,20 @@ nav{
 }
 
 .upvotes-number{
-  height: 19px;
-  width: 25px;
-  margin: 8px 0px;
+  margin: 0;
+  text-align: center;
 }
 
 .voting{
-  margin-left: 16px;
+  width: 27px;
 }
 
 .center-div{
   text-align: center;
+}
+
+.quote-and-author{
+  width: 295px;
 }
 
 .quote-author{
@@ -294,8 +298,21 @@ nav{
 }
 
 .profile-photo-small{
-  height: 24px;
-  width: 24px;
+  height: 26px;
+  width: 26px;
+}
+
+.quote-settings{
+  width: 16px;
+}
+
+.edit-remove-icon{
+  height: 16px;
+  width: 16px;
+}
+
+.edit-icon{
+  margin-bottom: 15px;
 }
 
 .load-more-button{
@@ -401,6 +418,7 @@ nav{
 
 .profile-h4{
   margin-bottom: 0;
+  margin-top: 0;
 }
 
 .popup-content{
@@ -454,11 +472,21 @@ nav{
 .flex-buttons{
   align-items: center;
 }
+.flex-button{
+  align-items: center;
+  justify-content: center;
+}
 
 .cancel-text{
   position: absolute;
   left: 34%;
-  top: 83%;
+  top: 80.5%;
+}
+
+.cancel-text-password{
+  position: absolute;
+  left: 34%;
+  top: 81.5%;
 }
 
 
@@ -466,7 +494,6 @@ nav{
 
 .profile-settings-changed{
   width: 525px;
-  height: 196px;
   background-color: white;
   box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.15);
   border-radius: 16px;
@@ -474,65 +501,45 @@ nav{
   border: 2px solid black;
 }
 
-.changed-popup{
-  left: auto !important;
-  right: auto !important;
+/* CREATE OR EDIT QUOTE */
+.crete-update-quote{
+  background-color: white;
+  height: auto;
+
+  width: 525px;
+
+  box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.15);
+  border-radius: 16px;
+  padding: 32px;
+  border: 2px solid black;
 }
 
-/* LOGIN */
-.login-div{
-  display: flex;
-  gap: 16px;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-.login-text{
-  height: 114px;
-  width: 420px;
-}
-
-.login-heading{
-  margin-bottom: 8px;
-  text-align: center;
-  font-weight: bold;
-}
-
-.login-paragraph{
-  margin-top: 0;
-  text-align: center;
-}
-
-.login-form{
-  margin-top: 32px;
-}
-
-.label-text{
-  margin-bottom: 0;
-  font-size: 14px;
-}
-
-.input-small{
-  border-radius: 100px;
-  background-color: white !important;
-  border: 2px solid var(--orange);
-  padding: 10px;
-  width: 420px;
-  box-sizing: border-box;
-}
-
-.submit-button{
-  margin-top: 16px;
+textarea{
+  border: 2px solid #DE8667 !important;
   font-size: 16px;
+  border-radius: 16px !important;
   font-family: 'Raleway';
-  color: var(--orange);
 }
 
-.right-text{
-  float: right;
+.cancel-text-create-quote{
+  position: absolute;
+  left: 34%;
+  top: 74.75%;
 }
 
+
+/* QUOTE ADDED/CHANGED */
+.confirmation-quote{
+  background-color: white;
+  height: auto;
+
+  width: 317px;
+
+  box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.15);
+  border-radius: 16px;
+  padding: 32px;
+  border: 2px solid black;
+}
 
 /* LOGIN */
 .login-div{
@@ -541,6 +548,7 @@ nav{
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  height: 35.6em;
 }
 
 .login-text{

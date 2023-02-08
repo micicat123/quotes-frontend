@@ -1,6 +1,6 @@
 import axios from "axios";
 import { Component, ReactNode, useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Popup from "reactjs-popup";
 import { User } from "../models/user";
 import CreateOrEditQuote from "./pop-ups/Quote-popups/Create-or-edit-quote";
@@ -9,8 +9,12 @@ import UserSettings from "./pop-ups/User-popups/User-info-form";
 
 const Nav = (props: {user: User}) => {
     
+    let navigate = useNavigate();
+    
     const logout = async () =>{
-        await axios.post('/logout', {});
+        await axios.post('/auth/logout');
+        navigate('/');
+        window.location.reload();
     }
 
     return(
@@ -69,9 +73,7 @@ const Nav = (props: {user: User}) => {
                                     <Popups/>
                                 </li>    
                                 <li>
-                                    <Link to={'/logout'} className="nav-link-profile">
-                                        <p className="profile-list">Logout</p>
-                                    </Link>
+                                    <p className="white-text" onClick={logout}>Logout</p>
                                 </li>
                                 <li style={{padding:'0 16px 0 32px'}}>
                                     <Link to={'/profile'}>
@@ -101,9 +103,7 @@ const Nav = (props: {user: User}) => {
                                     <Popups orange={true}/>
                                 </li>
                                 <li>
-                                    <Link to={'/logout'} className="nav-link">
-                                        <p>Logout</p>
-                                    </Link>
+                                    <p onClick={logout} className="orange-text">Logout</p>
                                 </li>
                                 <li style={{padding:'0 16px 0 32px'}}>
                                     <Link to={'/profile'}>

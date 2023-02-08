@@ -6,33 +6,41 @@ const CreateOrEditQuote =  (props:any)  => {
 
     const [quote, setQuote] = useState('');
     const [quoteIsOpen, setQuoteIsOpen] = useState(false); 
-    const [Ischanged, setIsChanged] = useState(false); 
+    const [Ischanged, setIsChanged] = useState(false);
+    
+    useEffect(() => {
+        setQuote(props.quote);
+      }, [Ischanged]);
 
     const submit = async (e: SyntheticEvent) => {
         e.preventDefault();
 
         if (props.create) {
+            console.log(`create`);
             await axios.post('/quote', {
                 quote
             });
         }
-        //add to edit quote but needs id
         else{
-            await axios.put('/quote', {
+            await axios.put(`/quote/${props.quote_id}`, {
                 quote
             });
+            
         }
 
         setIsChanged(true);
         setQuoteIsOpen(false);        
     };
-
-    useEffect(() => {}, [Ischanged]);
     
 
     return(
         <>
-            <button className="circle add-quote-circle" onClick={() => console.log(setQuoteIsOpen(o => !o))}></button>
+            {props.create ? 
+                <button className="circle add-quote-circle" onClick={() => setQuoteIsOpen(o => !o)}></button>
+                :
+                <img src="/pictures/edit-quote.png" alt="Image" className="edit-remove-icon edit-icon" onClick={() => setQuoteIsOpen(o => !o)}/>
+            }
+
             <Popup open={quoteIsOpen}>
                 <div className="crete-update-quote">
 
@@ -47,7 +55,7 @@ const CreateOrEditQuote =  (props:any)  => {
                     
                     <form onSubmit={submit}>
 
-                        <textarea required rows={4} onChange={e => setQuote(e.target.value)} className="input-big"/>
+                        <textarea required rows={4} onChange={e => setQuote(e.target.value)} className="input-big" defaultValue={quote}/>
                         
                         <div className="name-surname flex-buttons">
                             <input type="submit" value="Submit" className='submit-button-small'/>
@@ -60,7 +68,11 @@ const CreateOrEditQuote =  (props:any)  => {
 
             <Popup open={Ischanged}>
                  <div className="confirmation-quote">
-                    <h5 className="profile-h4 centered-text">Your <span className="orange-text">quote</span><span> was edited.</span></h5>
+                    {props.create ?
+                        <h5 className="profile-h4 centered-text">Your <span className="orange-text">quote</span><span> was created.</span></h5>
+                        :
+                        <h5 className="profile-h4 centered-text">Your <span className="orange-text">quote</span><span> was edited.</span></h5>
+                    }
                     <div className="name-surname flex-button">
                         <input type="submit" value="Close" className='submit-button-small' onClick={() => {setIsChanged(false); window.location.reload();}}/>
                     </div>

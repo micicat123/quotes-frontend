@@ -1,12 +1,8 @@
-import React, { Component, useEffect, useState } from 'react';
+import  { useEffect, useState } from 'react';
 import Wrapper from '../components/Wrapper';
 import axios from 'axios';
-import { Link } from 'react-router-dom';
-import MostUpvotedQuotes from '../components/home-page/MostUpvotedQuotes';
-import MostRecentQuotes from '../components/home-page/MostRecentQuotes';
-import { Quote } from '../models/quote';
+import { Navigate } from 'react-router-dom';
 import MappedQuotes from '../components/home-page/MappedQuotes';
-import UserSettings from '../components/pop-ups/User-popups/User-info-form';
 import { User } from '../models/user';
 
 const Profilepage = () => {
@@ -17,6 +13,7 @@ const Profilepage = () => {
     const [usersMostLikedQuotes, setUsersMostLikedQuotes] = useState<any>([]);
     const [usersQuotes, setUsersQuotes] = useState<any>([]);
     const [statistics, setStatistics] = useState<any>();
+    const [redirect, setRediect] = useState(false);
 
     useEffect(() => {
         (
@@ -30,6 +27,7 @@ const Profilepage = () => {
                     
                 }catch(err){
                     console.log(err);
+                    setRediect(true);
                 }
             }
         )();
@@ -37,6 +35,10 @@ const Profilepage = () => {
 
     function loadMore(){
         setPage(page + 1);
+    }
+
+    if(redirect){
+        return <Navigate to={'/'}/>
     }
 
     return(

@@ -32,7 +32,7 @@ const DeleteQuote =  (props:any)  => {
                         <input type="submit" value="Delete" className='submit-button-small' onClick={submit}/>
                     </div>
                 </div>    
-                <p onClick={() => setIsOpen(false)} className="cancel-text-create-quote">Cancel</p>
+                <p onClick={() => setIsOpen(false)} className="cancel-text-create-delete">Cancel</p>
             </Popup> 
 
             <Popup open={Ischanged}>

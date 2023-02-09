@@ -1,8 +1,3 @@
-import axios from "axios";
-import { Component, ReactNode, useEffect, useState } from "react";
-import { Link } from "react-router-dom";
-import { User } from "../models/user";
-
 const Footer = () => {
 
     return(

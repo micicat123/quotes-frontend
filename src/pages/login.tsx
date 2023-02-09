@@ -1,7 +1,7 @@
-import React, { Component, SyntheticEvent, useEffect, useState } from 'react';
+import { SyntheticEvent, useState } from 'react';
 import Wrapper from '../components/Wrapper';
 import axios from 'axios';
-import { Link, Navigate } from 'react-router-dom';
+import { Navigate } from 'react-router-dom';
 
 const Login = () => {
 

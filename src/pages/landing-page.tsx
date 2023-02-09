@@ -1,4 +1,4 @@
-import React, { Component, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import Wrapper from '../components/Wrapper';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
@@ -31,7 +31,6 @@ const LandingPage = () => {
         )();
       }, []);
 
-    console.log();
     //user is logged in  
     if (loggedIn){
         return(
@@ -55,6 +54,7 @@ const LandingPage = () => {
                                 <p className="caption">{randomQuote.user.first_name} {randomQuote.user.last_name}</p>
                             </div>
                         </div>
+                        <div className="quote-settings"></div>
                     </div>
                 </>
                 <MostUpvotedQuotes NeedToLoadMore={true}/>

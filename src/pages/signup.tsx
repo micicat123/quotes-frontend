@@ -1,7 +1,7 @@
-import React, { Component, SyntheticEvent, useEffect, useState } from 'react';
+import { SyntheticEvent, useState } from 'react';
 import Wrapper from '../components/Wrapper';
 import axios from 'axios';
-import { Link, Navigate } from 'react-router-dom';
+import { Navigate } from 'react-router-dom';
 
 const Signup = () => {
 
@@ -93,9 +93,9 @@ const Signup = () => {
                 />
                 <br />
 
-                <input type="submit" value="Login" className='login-button'/>
+                <input type="submit" value="Sign up" className='signup-button-wide'/>
 
-                <p>Dont have account?<span className='right-text'><a href="/signup" className='alternative-text'>Sign up</a></span></p>
+                <p>Already have an account?<span className='right-text'><a href="/login" className='alternative-text'>Sign in</a></span></p>
             </form>
             <div>
             </div>

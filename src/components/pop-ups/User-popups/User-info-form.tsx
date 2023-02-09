@@ -1,7 +1,5 @@
 import axios from "axios";
 import { SyntheticEvent, useEffect, useState } from "react";
-import { Link } from "react-router-dom";
-
 
 const UserInfoForm =  (props: {handleData: Function, changepass: Function})  => {
 
@@ -13,9 +11,10 @@ const UserInfoForm =  (props: {handleData: Function, changepass: Function})  => 
         (
             async () =>{
                 try{
-                    setEmail(await (await axios.get('/auth/user')).data.email);
-                    setFirstName(await (await axios.get('/auth/user')).data.first_name);
-                    setLastName(await (await axios.get('/auth/user')).data.last_name);
+                    const {data} =(await axios.get('/auth/user'));
+                    setEmail(data.email);
+                    setFirstName(data.first_name);
+                    setLastName(data.last_name);
                 }catch(err){
                     console.log(err);
                 }
@@ -35,8 +34,10 @@ const UserInfoForm =  (props: {handleData: Function, changepass: Function})  => 
 
     return(
         <div className="profile-settings">
+            
             <h4 className="profile-h4">Profile <span className="orange-text">settings</span></h4>
             <p>Change your profile settings</p>
+
             <form onSubmit={submit}>
 
                 <label htmlFor="email"><p className='label-text'>Email</p></label>

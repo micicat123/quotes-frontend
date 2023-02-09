@@ -1,7 +1,5 @@
-import userEvent from "@testing-library/user-event";
 import axios, { AxiosResponse } from "axios";
 import { useEffect, useState } from "react";
-import { Quote } from "../../models/quote";
 import MappedQuotes from "./MappedQuotes";
 
 const MostUpvotedQuotes = (props: any) => {
@@ -20,11 +18,6 @@ const MostUpvotedQuotes = (props: any) => {
         });
       }, [page]);
 
-    function loadMore(){
-        setPage(page + 1);
-    }
-
-    console.log(quotes);
     if (props.NeedToLoadMore === false) {
         return(
             <>
@@ -48,7 +41,7 @@ const MostUpvotedQuotes = (props: any) => {
                 <MappedQuotes quotes = {quotes}/>
             </div>
             <div className='center-div'>
-                <button onClick={loadMore} className='button load-more-button'>Load more</button>
+                <button onClick={() => {setPage(page + 1)}} className='button load-more-button'>Load more</button>
             </div>  
         </>
     )

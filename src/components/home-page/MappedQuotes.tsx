@@ -26,8 +26,7 @@ const MappedQuotes = (props: any) => {
               ));
 
               setDecisions(await (await axios.get('/quote/user-decisions')).data);
-            }catch(err){
-              console.log("Couldn't get authenticated user!");}
+            }catch(err){}
           }
           
         )();
@@ -98,6 +97,55 @@ const MappedQuotes = (props: any) => {
                     );
                 })}
             </>
+        )
+    }
+    else if (props.quotes.length == 1){
+        getStatus(props.quotes[0].quote.quote_id);
+        return(
+            <div className="quote-card" key={props.quotes[0].quote.quote_id}>
+                <div className="voting">
+                    {status == 0 ?
+                        <>
+                            <i className="up-arrow arrow"></i>
+                            <p className="upvotes-number">{props.quotes[0].quote.upvotes}</p>
+                            <i className="down-arrow orange-arrow"></i>
+                        </>    
+                        :status == 2?
+                        <>
+                            <i className="up-arrow orange-arrow"></i>
+                            <p className="upvotes-number">{props.quotes[0].quote.upvotes}</p>
+                            <i className="down-arrow arrow"></i>
+                        </>
+                        :
+                        <>
+                            <i className="up-arrow arrow"></i>
+                            <p className="upvotes-number">{props.quotes[0].quote.upvotes}</p>
+                            <i className="down-arrow arrow"></i>
+                        </>
+
+                    }
+                </div>
+                <div className="quote-and-author">
+                    <div>
+                        <p>{props.quotes[0].quote.quote}</p>
+                    </div>
+                    <div className="quote-author">
+                        <img src="/pictures/profile-photo.png" alt="Image" className="profile-photo-small" />
+                        <p className="caption">{props.quotes[0].user.first_name} {props.quotes[0].user.last_name}</p>
+                    </div>
+                </div>
+                <div className="quote-settings">
+                    {user.first_name == props.quotes[0].user.first_name && user.last_name == props.quotes[0].user.last_name?
+                        <>
+                            <CreateOrEditQuote create={false} quote={props.quotes[0].quote.quote} quote_id={props.quotes[0].quote.quote_id}/>
+                            <DeleteQuote quote_id={props.quotes[0].quote.quote_id}/>
+                        </>
+                        :
+                        <></>
+                    }
+                    
+                </div>
+            </div>
         )
     }
 

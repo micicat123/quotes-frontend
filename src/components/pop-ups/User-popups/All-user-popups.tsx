@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import Popup from "reactjs-popup";
 import UserInfoForm from "./User-info-form";
 import UserPassForm from "./User-pass-form";
@@ -20,7 +20,6 @@ const UserPopups =  (props:any)  => {
         setPassIsOpen(true);
     }
 
-    console.log();
     return(
         <>
             {/*INFO SETTINGS*/}

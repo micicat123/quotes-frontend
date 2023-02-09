@@ -1,9 +1,7 @@
 import axios from 'axios';
-import { connect } from 'react-redux';
-import { Dispatch, useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import Nav from './Nav'
 import { User } from '../models/user';
-import { Navigate } from 'react-router-dom';
 import Footer from './Footer';
 
 const Wrapper = (props:any) => {

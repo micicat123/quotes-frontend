@@ -12,11 +12,11 @@ const CreateOrEditQuote =  (props:any)  => {
         setQuote(props.quote);
       }, [Ischanged]);
 
+      
     const submit = async (e: SyntheticEvent) => {
         e.preventDefault();
 
         if (props.create) {
-            console.log(`create`);
             await axios.post('/quote', {
                 quote
             });
@@ -50,7 +50,10 @@ const CreateOrEditQuote =  (props:any)  => {
                             <p>You can post quotes. You can delete them on your profile.</p>
                         </>
                         :
-                        <h4 className="profile-h4">Edit your <span className="orange-text">quote.</span></h4>
+                        <>
+                            <h4 className="profile-h4">Edit your <span className="orange-text">quote.</span></h4>
+                            <br />
+                        </>    
                     }         
                     
                     <form onSubmit={submit}>
@@ -62,8 +65,13 @@ const CreateOrEditQuote =  (props:any)  => {
                         </div>
 
                     </form>
-                </div>    
-                <p onClick={() => setQuoteIsOpen(false)} className="cancel-text-create-quote">Cancel</p>
+                </div>
+                {props.create ?
+                        <p onClick={() => setQuoteIsOpen(false)} className="cancel-text-create">Cancel</p>
+                        :
+                        <p onClick={() => setQuoteIsOpen(false)} className="cancel-text-edit">Cancel</p>
+                    }  
+
             </Popup> 
 
             <Popup open={Ischanged}>

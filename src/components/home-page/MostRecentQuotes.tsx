@@ -1,7 +1,5 @@
-import userEvent from "@testing-library/user-event";
 import axios, { AxiosResponse } from "axios";
 import { useEffect, useState } from "react";
-import { Quote } from "../../models/quote";
 import MappedQuotes from "./MappedQuotes";
 
 const MostRecentQuotes = () => {
@@ -9,6 +7,7 @@ const MostRecentQuotes = () => {
     const [quotes, setQuotes] = useState<any>([]);
 
     useEffect(() => {
+        
         axios.get(`/quote/most-recent/${page}`)
         .then(response => {
             setQuotes(quotes.concat(response.data));
@@ -16,11 +15,8 @@ const MostRecentQuotes = () => {
         .catch(error => {
           console.error(error);
         });
-      }, [page]);
 
-    function loadMore(){
-        setPage(page + 1);
-    }
+      }, [page]);
 
     return(
         <>  
@@ -30,7 +26,7 @@ const MostRecentQuotes = () => {
                 <MappedQuotes quotes = {quotes}/>
             </div>
             <div className='center-div'>
-                <button onClick={loadMore} className='button load-more-button'>Load more</button>
+                <button onClick={() => {setPage(page + 1)}} className='button load-more-button'>Load more</button>
             </div>  
         </>
     )

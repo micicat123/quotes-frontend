@@ -1,11 +1,8 @@
 import axios from "axios";
-import { Component, ReactNode, useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import Popup from "reactjs-popup";
 import { User } from "../models/user";
 import CreateOrEditQuote from "./pop-ups/Quote-popups/Create-or-edit-quote";
 import Popups from "./pop-ups/User-popups/All-user-popups";
-import UserSettings from "./pop-ups/User-popups/User-info-form";
 
 const Nav = (props: {user: User}) => {
     

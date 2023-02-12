@@ -2,6 +2,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { Quote } from "../../models/quote";
 import { User } from "../../models/user";
+import { UpvoteDownvote } from "../Common funtions/Voting";
 import CreateOrEditQuote from "../pop-ups/Quote-popups/Create-or-edit-quote";
 import DeleteQuote from "../pop-ups/Quote-popups/Delete-quote";
 
@@ -10,7 +11,6 @@ const MappedQuotes = (props: any) => {
     const [user, setUser] = useState(new User());
     const [decisions, setDecisions] = useState([]);
     let status = 1;
-
 
     useEffect(() => {
         (
@@ -33,12 +33,20 @@ const MappedQuotes = (props: any) => {
       }, []);   
 
     const getStatus = (quote_id:number) => {
-        decisions.map((d:any) => {
+        let stopMapping = false;
+
+        decisions.map((d: any) => {
+            if (stopMapping) {
+                return;
+            }
+
             if (quote_id == d.quote.quote_id) {
                 status = d.decision;
-                return 0;
-            } 
-            status = 1;
+                stopMapping = true;
+                return;
+            }
+            
+            status = 1;  
         });
     };  
 
@@ -48,27 +56,27 @@ const MappedQuotes = (props: any) => {
                 {props.quotes.map((quote: Quote) => {
 
                     getStatus(quote.quote_id);
-
+                
                     return (
                        <div className="quote-card" key={quote.quote_id}>
                             <div className="voting">
                                 {status == 0 ?
                                     <>
-                                        <i className="up-arrow arrow"></i>
+                                        <i className="up-arrow arrow" onClick={() => UpvoteDownvote(quote.quote_id, true, quote.user.user_id, user.user_id)}></i>
                                         <p className="upvotes-number">{quote.upvotes}</p>
-                                        <i className="down-arrow orange-arrow"></i>
+                                        <i className="down-arrow orange-arrow" onClick={() => UpvoteDownvote(quote.quote_id, false, quote.user.user_id, user.user_id)}></i>
                                     </>    
                                     :status == 2?
                                     <>
-                                        <i className="up-arrow orange-arrow"></i>
+                                        <i className="up-arrow orange-arrow" onClick={() => UpvoteDownvote(quote.quote_id, true, quote.user.user_id, user.user_id)}></i>
                                         <p className="upvotes-number">{quote.upvotes}</p>
-                                        <i className="down-arrow arrow"></i>
+                                        <i className="down-arrow arrow" onClick={() => UpvoteDownvote(quote.quote_id, false, quote.user.user_id, user.user_id)}></i>
                                     </>
                                     :
                                     <>
-                                        <i className="up-arrow arrow"></i>
+                                        <i className="up-arrow arrow" onClick={() => UpvoteDownvote(quote.quote_id, true, quote.user.user_id, user.user_id)}></i>
                                         <p className="upvotes-number">{quote.upvotes}</p>
-                                        <i className="down-arrow arrow"></i>
+                                        <i className="down-arrow arrow" onClick={() => UpvoteDownvote(quote.quote_id, false, quote.user.user_id, user.user_id)}></i>
                                     </>
 
                                 }
@@ -106,21 +114,21 @@ const MappedQuotes = (props: any) => {
                 <div className="voting">
                     {status == 0 ?
                         <>
-                            <i className="up-arrow arrow"></i>
+                            <i className="up-arrow arrow" onClick={() => UpvoteDownvote(props.quotes[0].quote.quote_id, true, props.quotes[0].user.user_id, user.user_id)}></i>
                             <p className="upvotes-number">{props.quotes[0].quote.upvotes}</p>
-                            <i className="down-arrow orange-arrow"></i>
+                            <i className="down-arrow orange-arrow" onClick={() => UpvoteDownvote(props.quotes[0].quote.quote_id, false, props.quotes[0].user.user_id, user.user_id)}></i>
                         </>    
                         :status == 2?
                         <>
-                            <i className="up-arrow orange-arrow"></i>
+                            <i className="up-arrow orange-arrow" onClick={() => UpvoteDownvote(props.quotes[0].quote.quote_id, true, props.quotes[0].user.user_id, user.user_id)}></i>
                             <p className="upvotes-number">{props.quotes[0].quote.upvotes}</p>
-                            <i className="down-arrow arrow"></i>
+                            <i className="down-arrow arrow" onClick={() => UpvoteDownvote(props.quotes[0].quote.quote_id, false, props.quotes[0].user.user_id, user.user_id)}></i>
                         </>
                         :
                         <>
-                            <i className="up-arrow arrow"></i>
+                            <i className="up-arrow arrow" onClick={() => UpvoteDownvote(props.quotes[0].quote.quote_id, true, props.quotes[0].user.user_id, user.user_id)}></i>
                             <p className="upvotes-number">{props.quotes[0].quote.upvotes}</p>
-                            <i className="down-arrow arrow"></i>
+                            <i className="down-arrow arrow" onClick={() => UpvoteDownvote(props.quotes[0].quote.quote_id, false, props.quotes[0].user.user_id, user.user_id)}></i>
                         </>
 
                     }

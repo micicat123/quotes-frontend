@@ -42,7 +42,7 @@ const LandingPage = () => {
                     <div className="quote-card random-quote-card" key={randomQuote.quote_id}>
                         <div className="voting">
                             <i className="up-arrow arrow"></i>
-                            <p className="upvotes-number">{randomQuote.upvotes}</p>
+                            <p className="upvotes-number random-quote-upvotes">{randomQuote.upvotes}</p>
                             <i className="down-arrow arrow"></i>
                         </div>
                         <div>

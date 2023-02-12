@@ -27,7 +27,7 @@ const MostUpvotedQuotes = (props: any) => {
                     <MappedQuotes quotes = {quotes}/>
                 </div>
                 <div className='center-div'>
-                    <a href="/signup"><button className='button signup-button-wide'>Sign up to see more</button></a>
+                    <a href="/signup"><button className='button signup-to-see-more'>Sign up to see more</button></a>
                 </div>
             </>
         )              

@@ -4,6 +4,7 @@ import axios from 'axios';
 import { Navigate } from 'react-router-dom';
 import MappedQuotes from '../components/home-page/MappedQuotes';
 import { User } from '../models/user';
+import { Quote } from '../models/quote';
 
 const Profilepage = () => {
 

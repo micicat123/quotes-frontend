@@ -54,9 +54,7 @@ const MappedQuotes = (props: any) => {
         return(  
             <>
                 {props.quotes.map((quote: Quote) => {
-
                     getStatus(quote.quote_id);
-                
                     return (
                        <div className="quote-card" key={quote.quote_id}>
                             <div className="voting">
@@ -107,10 +105,11 @@ const MappedQuotes = (props: any) => {
             </>
         )
     }
-    else if (props.quotes.length == 1){
+
+    else if (props.quotes.length == 1 && props.quotes[0].user.first_name != '') {
         getStatus(props.quotes[0].quote.quote_id);
         return(
-            <div className="quote-card" key={props.quotes[0].quote.quote_id}>
+            <div className="quote-card">
                 <div className="voting">
                     {status == 0 ?
                         <>

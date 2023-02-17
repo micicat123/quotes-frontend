@@ -249,6 +249,8 @@ nav{
   page-break-inside: avoid;
   margin-bottom: 19px;
   width: 372px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .signup-to-see-more{

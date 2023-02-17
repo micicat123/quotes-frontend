@@ -4,6 +4,7 @@ import axios from 'axios';
 import { Link } from 'react-router-dom';
 import MostUpvotedQuotes from '../components/home-page/MostUpvotedQuotes';
 import MostRecentQuotes from '../components/home-page/MostRecentQuotes';
+import MappedQuotes from '../components/home-page/MappedQuotes';
 
 const LandingPage = () => {
 
@@ -30,8 +31,9 @@ const LandingPage = () => {
             }
         )();
       }, []);
-
-    //user is logged in  
+ 
+    //user is logged in     
+    //console.log({quotes: [randomQuote]});
     if (loggedIn){
         return(
             <Wrapper>  
@@ -39,23 +41,8 @@ const LandingPage = () => {
                     <h4 className="orange-text centered-text">Quote of the day</h4>
                     <p className="centered-text  p-under-h4">Quote of the day is randomly choosen quote.</p> 
 
-                    <div className="quote-card random-quote-card" key={randomQuote.quote_id}>
-                        <div className="voting">
-                            <i className="up-arrow arrow"></i>
-                            <p className="upvotes-number random-quote-upvotes">{randomQuote.upvotes}</p>
-                            <i className="down-arrow arrow"></i>
-                        </div>
-                        <div>
-                            <div>
-                                <p>{randomQuote.quote}</p>
-                            </div>
-                            <div className="quote-author">
-                                <img src="/pictures/profile-photo.png" alt="Image" className="profile-photo-small" />
-                                <p className="caption">{randomQuote.user.first_name} {randomQuote.user.last_name}</p>
-                            </div>
-                        </div>
-                        <div className="quote-settings"></div>
-                    </div>
+    	            <MappedQuotes quotes={[randomQuote]}/>
+                    
                 </>
                 <MostUpvotedQuotes NeedToLoadMore={true}/>
                 <MostRecentQuotes/>

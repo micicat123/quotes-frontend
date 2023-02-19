@@ -11,19 +11,26 @@ const Signup = () => {
   const [password, setPassword] = useState('');
   const [password_confirm, setPasswordConfirm] = useState('');
   const [redirect, setRedirect] = useState(false);
+  const [errorMessage, setErrorMessage] = useState('');
 
   const submit = async (e: SyntheticEvent) => {
     e.preventDefault();
 
-    await axios.post('/user', {
+    try{
+      await axios.post('/user', {
         first_name,
         last_name,
         email,
         password,
         password_confirm
-    });
+      });
 
-    setRedirect(true);
+      setRedirect(true);
+    }
+    catch(err:any){
+      console.error(err);
+      setErrorMessage(err.response.data.message);
+    }
   };
 
   if(redirect){
@@ -91,7 +98,8 @@ const Signup = () => {
                   onChange={e => setPasswordConfirm(e.target.value)}
                   className="input-small"
                 />
-                <br />
+                
+                <div className='error-message'>{errorMessage}</div>
 
                 <input type="submit" value="Sign up" className='signup-button-wide'/>
 

@@ -33,8 +33,7 @@ const LandingPage = () => {
       }, []);
  
     //user is logged in     
-    //console.log({quotes: [randomQuote]});
-    if (loggedIn){
+        if (loggedIn){
         return(
             <Wrapper>  
                 <>

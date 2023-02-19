@@ -5,6 +5,7 @@ import UserPassForm from "./User-pass-form";
 
 const UserPopups =  (props:any)  => {
 
+    
     const [infoIsOpen, setInfoIsOpen] = useState(false);
     const [passIsOpen, setPassIsOpen] = useState(false);
     const [changedIsOpen, setChangedIsOpen] = useState(false);

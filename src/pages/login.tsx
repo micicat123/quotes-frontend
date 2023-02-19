@@ -8,13 +8,18 @@ const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [redirect, setRedirect] = useState(false);
+  const [errorMessage, setErrorMessage] = useState('');
 
   const submit = async (e: SyntheticEvent) => {
     e.preventDefault();
 
-    await axios.post('/auth/login', {email, password});
-
-    setRedirect(true);
+    try{
+      await axios.post('/auth/login', {email, password});
+      setRedirect(true);
+    }
+    catch (err) {
+      setErrorMessage("Username or password incorrect!");
+    }
   };
 
   if(redirect){
@@ -47,7 +52,9 @@ const Login = () => {
                   onChange={e => setPassword(e.target.value)}
                   className="input-small"
                 />
-                <br />
+                
+                <div className='error-message'>{errorMessage}</div>
+                
 
                 <input type="submit" value="Login" className='submit-button'/>
 

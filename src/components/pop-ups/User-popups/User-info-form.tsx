@@ -6,6 +6,7 @@ const UserInfoForm =  (props: {handleData: Function, changepass: Function})  => 
     const [email, setEmail] = useState('');
     const [first_name, setFirstName] = useState('');
     const [last_name, setLastName] = useState('');
+    const [errorMessage, setErrorMessage] = useState('');
 
     useEffect(() => {
         (
@@ -25,11 +26,19 @@ const UserInfoForm =  (props: {handleData: Function, changepass: Function})  => 
       const submit = async (e: SyntheticEvent) => {
         e.preventDefault();
     
-        await axios.put('/user/update-info', {
-            first_name,
-            last_name,
-            email
-        });
+        try{
+            await axios.put('/user/update-info', {
+                first_name,
+                last_name,
+                email
+            });
+
+            props.handleData();
+        }
+        catch(err){
+            setErrorMessage("This email address is already in use!");
+        }
+        
       };
 
     return(
@@ -75,13 +84,15 @@ const UserInfoForm =  (props: {handleData: Function, changepass: Function})  => 
                     </div>
                 </div>
 
+                <div className='error-message'>{errorMessage}</div>
+
                 <div className="name-surname">
                     <button type="button" className="medium-button yellow-background" onClick={() => props.changepass()}>Change password</button>
                     <button type="button" disabled className="medium-button orange-background">Change profile picture</button>
                 </div>
                 
                 <div className="name-surname flex-buttons">
-                    <input type="submit" value="Submit" className='submit-button-small' onClick={() => props.handleData()}/>
+                    <input type="submit" value="Submit" className='submit-button-small'/>
                 </div>
 
             </form>

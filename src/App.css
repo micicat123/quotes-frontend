@@ -78,6 +78,11 @@ p{
   text-align: center;
 }
 
+.error-message {
+  color: red;
+  margin-top: 2%;
+}
+
 /* NAVBAR */
 nav{
   padding-top: 48px;
@@ -172,6 +177,7 @@ nav{
   align-items: center;
   justify-content: space-between;
 
+  margin-top: 1%;
   height: 64px;
   background-color: var(--orange);
   color: white;

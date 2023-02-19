@@ -1,21 +1,30 @@
 import axios from "axios";
-import { SyntheticEvent, useEffect, useState } from "react";
+import { SyntheticEvent, useState } from "react";
 
 const UserPassForm =  (props: {handleData: Function})  => {
 
     const [old_password, setOldPassword] = useState('');
     const [password, setPassword] = useState('');
     const [password_confirm, setPasswrodconfirm] = useState('');
-
+    const [errorMessage, setErrorMessage] = useState('');
 
     const submit = async (e: SyntheticEvent) => {
         e.preventDefault();
+
+        try{
+            await axios.put('/user/update-password', {
+                old_password,
+                password,
+                password_confirm
+            });
+
+            props.handleData()
+        }
+        catch(err:any){
+            setErrorMessage(err.response.data.message);
+        }
         
-        await axios.put('/user/update-password', {
-            old_password,
-            password,
-            password_confirm
-        });
+        
       };
 
     return(
@@ -26,7 +35,7 @@ const UserPassForm =  (props: {handleData: Function})  => {
 
                 <label htmlFor="old-pass"><p className='label-text'>Current password</p></label>
                 <input 
-                  type="text" 
+                  type="password" 
                   id="old-pass"
                   required
                   onChange={e => setOldPassword(e.target.value)}
@@ -36,7 +45,7 @@ const UserPassForm =  (props: {handleData: Function})  => {
                 <div>
                     <label htmlFor="pass"><p className='label-text'>New password</p></label>
                     <input 
-                    type="text" 
+                    type="password" 
                     id="pass"
                     required
                     onChange={e => setPassword(e.target.value)}
@@ -46,16 +55,18 @@ const UserPassForm =  (props: {handleData: Function})  => {
                 <div>
                     <label htmlFor="new-pass"><p className='label-text'>Confirm new password</p></label>
                     <input 
-                    type="text" 
+                    type="password" 
                     id="new-pass"
                     required
                     onChange={e => setPasswrodconfirm(e.target.value)}
                     className='input-big'
                     />
                 </div>
+
+                <div className='error-message'>{errorMessage}</div>
                 
                 <div className="name-surname flex-buttons">
-                    <input type="submit" value="Submit" className='submit-button-small' onClick={() => props.handleData()}/>
+                    <input type="submit" value="Submit" className='submit-button-small'/>
                 </div>
 
             </form>

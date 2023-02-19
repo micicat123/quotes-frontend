@@ -48,13 +48,15 @@ const MappedQuotes = (props: any) => {
             
             status = 1;  
         });
-    };  
+    }; 
 
     if (props.quotes.length > 1){
         return(  
             <>
                 {props.quotes.map((quote: Quote) => {
+
                     getStatus(quote.quote_id);
+
                     return (
                        <div className="quote-card" key={quote.quote_id}>
                             <div className="voting">

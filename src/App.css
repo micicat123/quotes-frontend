@@ -10,56 +10,56 @@ h1, h2, h3, h4, h5, p{
 }
 
 h1{
-  font-size: 98px;
+  font-size: 6.125em;
   font-weight: 300;
-  line-height: 90px;
-  letter-spacing: -1.5px;
+  line-height: 5.625rem;
+  letter-spacing: -0.094rem;
 }
 
 h2{
-  font-size: 61px;
+  font-size: 3.8125em;
   font-weight: 300;
-  line-height: 72px;
-  letter-spacing: -0.5px;
+  line-height: 4.5rem;
+  letter-spacing: -0.031rem;
 }
 
 h3{
+  font-size: 3.0625em;
   font-weight: 400;
-  font-size: 49px;
-  line-height: 58px;    
+  line-height: 3.625rem;    
 }
 
 h4{
   font-weight: 400;
-  font-size: 35px;
-  line-height: 41px;
-  letter-spacing: 0.25px;
-  margin-bottom: 8px;
+  font-size: 2.1875em;
+  line-height: 2.563rem;
+  letter-spacing: 0.016rem;
+  margin-bottom: 0.5rem;
 }
 
 h5{
   font-weight: 400;
-  font-size: 24px;
-  line-height: 28px;
+  font-size: 1.5em;
+  line-height: 1.75rem;
 }
 
 p{
   font-weight: 400;
-  font-size: 16px;
-  line-height: 19px;
+  font-size: 1em;
+  line-height: 1.188rem;
 }
 
 .p-bold{
   font-weight: 700;
-  font-size: 16px;
-  line-height: 19px;
+  font-size: 1em;
+  line-height: 1.188rem;
 }
 
 .caption{
   font-weight: 400;
-  font-size: 12px;
-  line-height: 14px;
-  letter-spacing: 0.4px;
+  font-size: 0.75em;
+  line-height: 0.875rem;
+  letter-spacing: 0.025rem;
   margin: 0;
 }
 
@@ -85,10 +85,10 @@ p{
 
 /* NAVBAR */
 nav{
-  padding-top: 48px;
-  padding-left: 70px;
-  padding-right: 70px;
-  height: 40px;
+  padding-top: 3rem;
+  padding-left: 4.375rem;
+  padding-right: 4.375rem;
+  height: 2.5rem;
 
   display: flex;
   align-items: center;
@@ -96,8 +96,8 @@ nav{
 }
 
 .circle{
-  height: 40px;
-  width: 40px;
+  height: 2.5rem;
+  width: 2.5rem;
   border-radius: 50%;
   border: none;
 }
@@ -136,9 +136,9 @@ nav{
 }
 
 .logo{
-  padding-top: 10.5px;
-  width: 115.76px;
-  height: 23.5px;
+  padding-top: 0.656rem;
+  width: 7.235rem;
+  height: 1.469rem;
 }
 
 .list{
@@ -148,23 +148,23 @@ nav{
 }
 
 .button{
-  border-radius: 100px;
+  border-radius: 6.25rem;
 }
 
 .signup-button{
-  width: 137px;
-  height: 40px;
-  margin-right: 31px;
+  width: 8.563rem;
+  height: 2.5rem;
+  margin-right: 1.938rem;
   border: none;
   background-color: var(--orange);
   color: white;
 }
 
 .login-button{
-  width: 137px;
-  height: 40px;
+  width: 8.563rem;
+  height: 2.5rem;
   background-color: white;
-  outline: 100px,;
+  outline: 6.25rem;
   border-style: solid;
   border-color: var(--orange) !important;
   color: var(--orange);
@@ -178,34 +178,34 @@ nav{
   justify-content: space-between;
 
   margin-top: 1%;
-  height: 64px;
+  height: 4rem;
   background-color: var(--orange);
   color: white;
 }
 
 .quote-icon{
-  padding-left: 70px;
-  height: 25px;
-  width: 33px;
+  padding-left: 4.375rem;
+  height: 1.563rem;
+  width: 2.063rem;
 }
 
 .footer-text{
-  padding-right: 70px;
-  font-size: 12px;
+  padding-right: 4.375rem;
+  font-size: 0.75em;
   align-items: center;
 }
 
 
 /* LANDING PAGE */
 .index-div{
-  margin-left: 180px;
+  margin-left: 11.25rem;
   display: flex;
   align-items: center;
-  gap: 145px;
+  gap: 9.063rem;
 }
 
 .first-flex-item{
-  margin-top: 200px;
+  margin-top: 12.5rem;
 }
 
 .welcome-heading{
@@ -214,90 +214,90 @@ nav{
 }
 
 .welcome-paragraph{
-  margin-top: 16px;
-  width: 530px;
+  margin-top: 1rem;
+  width: 33.125rem;
 }
 
 .second-flex-item{
-  margin-top: 195px;
-  margin-right: 139px;
+  margin-top: 12.188rem;
+  margin-right: 8.688rem;
 }
 
 .explore-heading{
-  width: 703px;
-  margin-top: 174px;
-  margin-bottom: 124px;
+  width: 43.938rem;
+  margin-top: 10.875rem;
+  margin-bottom: 7.75rem;
 }
 
 .p-under-h4{
-  width: 524px;
+  width: 32.75rem;
   margin-top: 0;
-  margin-bottom: 34px;
+  margin-bottom: 2.125rem;
 }
 
 .quotes-layout{
   column-count: 3;
-  column-gap: 19px;
-  width: 1300px;
+  column-gap: 1.188rem;
+  width: 81.25rem;
   margin-left: auto;
   margin-right: auto;
-  margin-bottom: 48px;
+  margin-bottom: 3rem;
 }
 
 .quote-card{
   background: #FFFFFF;
-  box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.15);
-  border-radius: 8px;
+  box-shadow: 0rem 0rem 0.5rem rgba(0, 0, 0, 0.15);
+  border-radius: 0.5rem;
   display: flex;
   align-items: center;
-  padding: 16px 32px 16px 16px;
-  gap: 21px;
+  padding: 1rem 2rem 1rem 1rem;
+  gap: 1.313rem;
   page-break-inside: avoid;
-  margin-bottom: 19px;
-  width: 372px;
+  margin-bottom: 1.188rem;
+  width: 23.25rem;
   margin-left: auto;
   margin-right: auto;
 }
 
 .signup-to-see-more{
-  width: 184px;
-  height: 40px;
-  font-size: 16px;
+  width: 11.5rem;
+  height: 2.5rem;
+  font-size: 1em;
   background-color: white;
   border-style: solid;
   border-color: var(--orange);
   color: var(--orange);
-  margin-top: 33px;
-  margin-bottom: 182px;
+  margin-top: 2.063rem;
+  margin-bottom: 11.375rem;
 }
 
 .random-quote-card{
-  width: 372px;
+  width: 23.25rem;
   margin-left: auto;
   margin-right: auto;
-  margin-bottom: 127px;
+  margin-bottom: 7.938rem;
 }
 
 .random-quote-upvotes{
-  padding-left: 3px;
+  padding-left: 0.188rem;
 }
 
 .arrow{
   border: solid black;
-  border-width: 0 2px 2px 0;
+  border-width: 0 0.125rem 0.125rem 0;
   display: inline-block;
-  padding: 4px;  
+  padding: 0.25rem;  
   transform: rotate(-135deg);
-  margin-left: 8px;
+  margin-left: 0.5rem;
 }
 
 .orange-arrow{
   border: solid var(--orange);
-  border-width: 0 2px 2px 0;
+  border-width: 0 0.125rem 0.125rem 0;
   display: inline-block;
-  padding: 4px;  
+  padding: 0.25rem;  
   transform: rotate(-135deg);
-  margin-left: 8px;
+  margin-left: 0.5rem;
 }
 
 .up-arrow{
@@ -314,7 +314,7 @@ nav{
 }
 
 .voting{
-  width: 27px;
+  width: 1.688rem;
 }
 
 .center-div{
@@ -322,100 +322,100 @@ nav{
 }
 
 .quote-and-author{
-  width: 295px;
+  width: 18.438rem;
 }
 
 .quote-author{
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 0.625rem;
 }
 
 .profile-photo-small{
-  height: 26px;
-  width: 26px;
+  height: 1.625rem;
+  width: 1.625rem;
 }
 
 .quote-settings{
-  width: 16px;
+  width: 1rem;
 }
 
 .edit-remove-icon{
-  height: 16px;
-  width: 16px;
+  height: 1rem;
+  width: 1rem;
 }
 
 .edit-icon{
-  margin-bottom: 15px;
+  margin-bottom: 1rem;
 }
 
 .load-more-button{
-  width: 148px;
-  height: 40px;
-  outline: 100px,;
+  width: 9.25rem;
+  height: 2.5rem;
+  outline: 6.25rem;
   border-style: solid;
   background-color: white;
   border-color: var(--orange) !important;
   color: var(--orange);
-  margin-bottom: 128px;
+  margin-bottom: 8rem;
 }
 
 .signup-button-wide{
-  width: 420px;
-  height: 40px;
-  font-size: 16px;
+  width: 26.25rem;
+  height: 2.5;
+  font-size: 1em;
   background-color: var(--orange) !important;
   color: white;
-  margin-top: 16px;
+  margin-top: 1rem;
 }
 
 /* PROFILE PAGE */
 .upper-profile-page{
-  height: 326.5px;
+  height: 20.406rem;
   background-color: var(--orange);
 }
 
 .lower-profile-page{
-  margin-top: 91px;
+  margin-top: 5.688rem;
   margin-left: auto;
   margin-right: auto;
-  margin-bottom: 18px;
-  width: 1300px;
+  margin-bottom: 1.125rem;
+  width: 81.25rem;
   display: flex;
 }
 
 .profile-photo-large{
-  height: 86px;
-  width: 86px;
-  margin-top: 100px;
+  height: 5.375rem;
+  width: 5.375rem;
+  margin-top: 6.25rem;
 }
 
 .name-surname-big{
-  margin-top: 18px;
-  margin-bottom: 38px;
+  margin-top: 1.125rem;
+  margin-bottom: 2.375rem;
 }
 
 .statistics{
   margin-right: auto;
   margin-left: auto;
-  padding-left: 32px;
-  padding-right: 32px;
-  width: 251px;
-  height: 83px;
+  padding-left: 2rem;
+  padding-right: 2rem;
+  width: 15.688rem;
+  height: 5.188rem;
   background-color: white;
   display: flex;
-  gap: 32px;
+  gap: 2rem;
   justify-content: center;
   align-items: center;
   text-align: center;
-  box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.15);
-  border-radius: 16px;
+  box-shadow: 0rem 0rem 0.5rem rgba(0, 0, 0, 0.15);
+  border-radius: 1rem;
 }
 
 .statistics-text{
  margin: 0;
- margin-bottom: 4px;
- width: 123px;
+ margin-bottom: 0.25rem;
+ width: 7.688rem;
 }
 
 .statistics-number{
@@ -423,18 +423,18 @@ nav{
 }
 
 .profile-quotes{
-  width: 420px;
+  width: 26.25rem;
 }
 
 .middle-quotes{
-  margin-left: 20px;
-  margin-right: 20px;
+  margin-left: 1.25rem;
+  margin-right: 1.25rem;
 }
 
 .profile-h5{
   margin-top: 0;
-  margin-bottom: 27px;
-  padding-left: 16px;
+  margin-bottom: 1.688rem;
+  padding-left: 1rem;
 }
 
 
@@ -442,10 +442,10 @@ nav{
 .profile-settings{
   width: 525px;
   background-color: white;
-  box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.15);
-  border-radius: 16px;
-  padding: 32px;
-  border: 2px solid black;
+  box-shadow: 0rem 0rem 0.rem rgba(0, 0, 0, 0.15);
+  border-radius: 1rem;
+  padding: 2rem;
+  border: 0.125rem solid black;
 }
 
 .profile-h4{
@@ -461,16 +461,16 @@ nav{
 }
 
 .input-big{
-  border-radius: 100px;
+  border-radius: 6.25rem;
   background-color: white !important;
-  border: 2px solid var(--orange);
-  padding: 10px;
-  width: 529px;
+  border: 0.125rem solid var(--orange);
+  padding: 0.625rem;
+  width: 33.063rem;
   box-sizing: border-box;
 }
 
 .name-input-big{
-  width: 256.5px;
+  width: 16.031rem;
 }
 
 .yellow-background{
@@ -483,20 +483,20 @@ nav{
 
 .medium-button{
   color: white;
-  margin-top: 16px;
-  font-size: 16px;
+  margin-top: 1rem;
+  font-size: 1em;
   font-family: 'Raleway';
-  border-radius: 100px;
+  border-radius: 6.25rem;
   border: none;
-  width: 256.5px;
-  height: 40px;
+  width: 16.031rem;
+  height: 2.5rem;
 }
 
 .submit-button-small{
-  margin-top: 16px;
-  margin-right: 30px;
-  width: 137px;
-  height: 40px;
+  margin-top: 1rem;
+  margin-right: 1.875rem;
+  width: 8.563rem;
+  height: 2.5rem;
   background-color: var(--orange) !important;
   color: white;
 }
@@ -548,12 +548,12 @@ nav{
 /* PROFILE SETTINGS CHANGED */
 
 .profile-settings-changed{
-  width: 525px;
+  width: 32.813rem;
   background-color: white;
-  box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.15);
-  border-radius: 16px;
-  padding: 32px;
-  border: 2px solid black;
+  box-shadow: 0rem 0rem 0.5rem rgba(0, 0, 0, 0.15);
+  border-radius: 1rem;
+  padding: 2rem;
+  border: 0.125rem solid black;
 }
 
 /* CREATE OR EDIT QUOTE */
@@ -561,18 +561,18 @@ nav{
   background-color: white;
   height: auto;
 
-  width: 525px;
+  width: 32.813rem;
 
-  box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.15);
-  border-radius: 16px;
-  padding: 32px;
-  border: 2px solid black;
+  box-shadow: 0rem 0rem 0.5rem rgba(0, 0, 0, 0.15);
+  border-radius: 1rem;
+  padding: 2rem;
+  border: 0.125rem solid black;
 }
 
 textarea{
-  border: 2px solid #DE8667 !important;
-  font-size: 16px;
-  border-radius: 16px !important;
+  border: 0.125rem solid #DE8667 !important;
+  font-size: 1em;
+  border-radius: 1rem !important;
   font-family: 'Raleway';
 }
 
@@ -582,18 +582,18 @@ textarea{
   background-color: white;
   height: auto;
 
-  width: 317px;
+  width: 19.813rem;
 
-  box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.15);
-  border-radius: 16px;
-  padding: 32px;
-  border: 2px solid black;
+  box-shadow: 0rem 0rem 0.5rem rgba(0, 0, 0, 0.15);
+  border-radius: 1rem;
+  padding: 2rem;
+  border: 0.125rem solid black;
 }
 
 /* LOGIN */
 .login-div{
   display: flex;
-  gap: 16px;
+  gap: 1rem;
   flex-direction: column;
   justify-content: center;
   align-items: center;
@@ -601,12 +601,12 @@ textarea{
 }
 
 .login-text{
-  height: 114px;
-  width: 420px;
+  height: 7.125rem;
+  width: 26.25rem;
 }
 
 .login-heading{
-  margin-bottom: 8px;
+  margin-bottom: 0.5rem;
   text-align: center;
   font-weight: bold;
 }
@@ -617,26 +617,26 @@ textarea{
 }
 
 .login-form{
-  margin-top: 32px;
+  margin-top: 2rem;
 }
 
 .label-text{
   margin-bottom: 0;
-  font-size: 14px;
+  font-size: 0.875em;
 }
 
 input{
-  border-radius: 100px;
+  border-radius: 6.25rem;
   background-color: white !important;
-  border: 2px solid var(--orange);
-  padding: 10px;
-  width: 420px;
+  border: 0.125rem solid var(--orange);
+  padding: 0.625rem;
+  width: 26.25rem;
   box-sizing: border-box;
 }
 
 .submit-button{
-  margin-top: 16px;
-  font-size: 16px;
+  margin-top: 1rem;
+  font-size: 1em;
   font-family: 'Raleway';
   color: var(--orange);
 }
@@ -648,15 +648,15 @@ input{
 
 /* REGISTER */
 .register-photo{
-  height: 64px;
-  width: 64px;
+  height: 4rem;
+  width: 4rem;
 }
 
 .name-surname{
   display: flex;
-  gap: 16px;
+  gap: 1rem;
 }
 
 .name-input{
-  width: 202px;
+  width: 12.625rem;
 }

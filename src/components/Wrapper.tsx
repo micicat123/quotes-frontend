@@ -29,7 +29,7 @@ const Wrapper = (props:any) => {
     return (
       <>
         <Nav user={user}/>
-          <main className="">
+          <main>
               {props.children}  
           </main>
         <Footer/>

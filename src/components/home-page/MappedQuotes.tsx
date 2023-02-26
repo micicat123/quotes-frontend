@@ -50,11 +50,11 @@ const MappedQuotes = (props: any) => {
         });
     }; 
 
-    if (props.quotes.length > 1){
+    if (props.quotes.length > 0 && props.quotes[0].user.first_name != ''){
         return(  
             <>
                 {props.quotes.map((quote: Quote) => {
-
+                    
                     getStatus(quote.quote_id);
 
                     return (
@@ -105,56 +105,6 @@ const MappedQuotes = (props: any) => {
                     );
                 })}
             </>
-        )
-    }
-
-    else if (props.quotes.length == 1 && props.quotes[0].user.first_name != '') {
-        getStatus(props.quotes[0].quote.quote_id);
-        return(
-            <div className="quote-card">
-                <div className="voting">
-                    {status == 0 ?
-                        <>
-                            <i className="up-arrow arrow" onClick={() => UpvoteDownvote(props.quotes[0].quote.quote_id, true, props.quotes[0].user.user_id, user.user_id)}></i>
-                            <p className="upvotes-number">{props.quotes[0].quote.upvotes}</p>
-                            <i className="down-arrow orange-arrow" onClick={() => UpvoteDownvote(props.quotes[0].quote.quote_id, false, props.quotes[0].user.user_id, user.user_id)}></i>
-                        </>    
-                        :status == 2?
-                        <>
-                            <i className="up-arrow orange-arrow" onClick={() => UpvoteDownvote(props.quotes[0].quote.quote_id, true, props.quotes[0].user.user_id, user.user_id)}></i>
-                            <p className="upvotes-number">{props.quotes[0].quote.upvotes}</p>
-                            <i className="down-arrow arrow" onClick={() => UpvoteDownvote(props.quotes[0].quote.quote_id, false, props.quotes[0].user.user_id, user.user_id)}></i>
-                        </>
-                        :
-                        <>
-                            <i className="up-arrow arrow" onClick={() => UpvoteDownvote(props.quotes[0].quote.quote_id, true, props.quotes[0].user.user_id, user.user_id)}></i>
-                            <p className="upvotes-number">{props.quotes[0].quote.upvotes}</p>
-                            <i className="down-arrow arrow" onClick={() => UpvoteDownvote(props.quotes[0].quote.quote_id, false, props.quotes[0].user.user_id, user.user_id)}></i>
-                        </>
-
-                    }
-                </div>
-                <div className="quote-and-author">
-                    <div>
-                        <p>{props.quotes[0].quote.quote}</p>
-                    </div>
-                    <div className="quote-author">
-                        <img src="/pictures/profile-photo.png" alt="Image" className="profile-photo-small" />
-                        <p className="caption">{props.quotes[0].user.first_name} {props.quotes[0].user.last_name}</p>
-                    </div>
-                </div>
-                <div className="quote-settings">
-                    {user.first_name == props.quotes[0].user.first_name && user.last_name == props.quotes[0].user.last_name?
-                        <>
-                            <CreateOrEditQuote create={false} quote={props.quotes[0].quote.quote} quote_id={props.quotes[0].quote.quote_id}/>
-                            <DeleteQuote quote_id={props.quotes[0].quote.quote_id}/>
-                        </>
-                        :
-                        <></>
-                    }
-                    
-                </div>
-            </div>
         )
     }
 

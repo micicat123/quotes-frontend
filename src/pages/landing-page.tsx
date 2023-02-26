@@ -32,8 +32,8 @@ const LandingPage = () => {
         )();
       }, []);
  
-    //user is logged in     
-        if (loggedIn){
+    //user is logged in
+    if (loggedIn){
         return(
             <Wrapper>  
                 <>

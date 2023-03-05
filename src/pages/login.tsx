@@ -58,7 +58,10 @@ const Login = () => {
 
                 <input type="submit" value="Login" className='submit-button'/>
 
-                <p>Dont have account?<span className='right-text'><a href="/signup" className='alternative-text'>Sign up</a></span></p>
+                  <div className='text-under-form'>
+                    <p className='inline first-text'>Dont have account?</p>
+                    <p className='inline second-text'><a href="/signup" className='alternative-text'>Sign up</a></p>
+                  </div>
             </form>
             <div>
             </div>

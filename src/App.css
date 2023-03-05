@@ -83,6 +83,28 @@ p{
   margin-top: 2%;
 }
 
+form{
+  width: 100%;
+}
+
+.inline{
+  display: inline;
+  margin-top: 0;
+}
+
+.text-under-form{
+  margin-top: 1em;
+  display: flex;
+  justify-content: space-between;
+}
+.first-text{
+  margin-right: auto;
+}
+.second-text{
+  margin-left: auto;
+}
+
+
 /* NAVBAR */
 nav{
   padding-top: 3rem;
@@ -176,8 +198,11 @@ nav{
   display: flex;
   align-items: center;
   justify-content: space-between;
+  position: relative;
 
-  margin-top: 1%;
+  margin-top: 10%;
+  width: 100%;
+  min-width: 14em;
   height: 4rem;
   background-color: var(--orange);
   color: white;
@@ -362,7 +387,7 @@ nav{
 
 .signup-button-wide{
   width: 26.25rem;
-  height: 2.5;
+  margin-bottom: 1rem;
   font-size: 1em;
   background-color: var(--orange) !important;
   color: white;
@@ -597,12 +622,9 @@ textarea{
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 35.6em;
-}
-
-.login-text{
-  height: 7.125rem;
-  width: 26.25rem;
+  max-width: 26.25rem;
+  min-width: 12em;
+  margin: auto;
 }
 
 .login-heading{
@@ -616,10 +638,6 @@ textarea{
   text-align: center;
 }
 
-.login-form{
-  margin-top: 2rem;
-}
-
 .label-text{
   margin-bottom: 0;
   font-size: 0.875em;
@@ -630,7 +648,7 @@ input{
   background-color: white !important;
   border: 0.125rem solid var(--orange);
   padding: 0.625rem;
-  width: 26.25rem;
+  width: 100% !important;
   box-sizing: border-box;
 }
 
@@ -642,11 +660,22 @@ input{
 }
 
 .right-text{
-  float: right;
+  text-align: right;
 }
 
 
 /* REGISTER */
+.signup-div{
+  display: flex;
+  gap: 1rem;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  max-width: 26.25rem;
+  min-width: 12rem;
+  margin: auto;
+}
+
 .register-photo{
   height: 4rem;
   width: 4rem;
@@ -654,9 +683,40 @@ input{
 
 .name-surname{
   display: flex;
-  gap: 1rem;
 }
 
 .name-input{
-  width: 12.625rem;
+  width: 110% !important;
 }
+
+.surname-input{
+  margin-left: 2em;
+}
+
+
+@media only screen and (max-width: 480px) {
+
+  .surname-input{
+    margin-left: 0;
+  }
+  .name-input{
+    width: 100% !important;
+  }
+  .name-surname{
+    justify-content: space-between;
+  }
+  .signup-div{
+    margin: auto 2.0625em auto 2.0625em;
+  }
+  .inline{
+    margin-right: 0.5rem;
+  }
+  .right-text{
+    white-space: nowrap;
+  }
+
+  .login-div{
+    margin: auto 2.0625em auto 2.0625em;
+  }
+}
+

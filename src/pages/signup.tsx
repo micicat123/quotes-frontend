@@ -39,7 +39,7 @@ const Signup = () => {
 
     return (
       <Wrapper>  
-        <div className='login-div'>
+        <div className='signup-div'>
             <div className='login-text'>
                 <h4 className='login-heading'>What is your <span className='orange-text'>name?</span></h4>
                 <p className='login-paragraph'>Your name will appear on quotes and your public profle.</p>
@@ -68,7 +68,7 @@ const Signup = () => {
                       onChange={e => setFirstName(e.target.value)}
                     />
                   </div>
-                  <div>
+                  <div className='surname-input'>
                     <label htmlFor="last-name"><p className='label-text'>Last name</p></label>
                     <input 
                       type="text" 
@@ -102,8 +102,11 @@ const Signup = () => {
                 <div className='error-message'>{errorMessage}</div>
 
                 <input type="submit" value="Sign up" className='signup-button-wide'/>
-
-                <p>Already have an account?<span className='right-text'><a href="/login" className='alternative-text'>Sign in</a></span></p>
+                
+                <div>
+                  <p className='inline'>Already have an account?</p>
+                  <p className='inline right-text'><a href="/login" className='alternative-text'>Sign in</a></p>
+                </div>
             </form>
             <div>
             </div>

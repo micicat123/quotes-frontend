@@ -57,7 +57,7 @@ const MenuPopup =  (props:{user:String, logout:Function, openSettings:Function})
                             </div>
                         </div>
                         <div className="hamburger-menu-item">
-                            <h5 className="menu-text orange-text">Logout</h5>
+                            <h5 className="menu-text orange-text" onClick={() => props.logout()}>Logout</h5>
                             <div>
                                 <i className="arrow right-arrow orange-arrow"></i>
                             </div>

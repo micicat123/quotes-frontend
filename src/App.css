@@ -104,12 +104,19 @@ form{
   margin-left: auto;
 }
 
+li{
+  display: inline-block;
+}
+
+.right-arrow{
+  transform: rotate(-45deg) !important;
+}
 
 /* NAVBAR */
 nav{
   padding-top: 3rem;
-  padding-left: 4.375rem;
-  padding-right: 4.375rem;
+  padding-left: 7%;
+  padding-right: 7%;
   height: 2.5rem;
 
   display: flex;
@@ -181,6 +188,15 @@ nav{
   background-color: var(--orange);
   color: white;
 }
+.signup-button-nohide{
+  width: 12rem;
+  height: 2.5rem;
+  margin: 2rem auto 0.25rem 7%;
+  font-size: 1em;
+  border: none;
+  background-color: var(--orange) !important;
+  color: white;
+}
 
 .login-button{
   width: 8.563rem;
@@ -190,6 +206,63 @@ nav{
   border-style: solid;
   border-color: var(--orange) !important;
   color: var(--orange);
+}
+.login-button-nohide{
+  width: 12rem;
+  height: 2.5rem;
+  background-color: white;
+  outline: 6.25rem;
+  border-style: solid;
+  border-color: var(--orange) !important;
+  color: var(--orange);
+  margin: 1rem auto 1rem 7%;
+}
+
+.menu-icon{
+  width: 1.2rem;
+  height: 0.1rem;
+  background-color: var(--orange);
+  margin: 0.325rem 0;
+}
+
+.hamburger-menu{
+  display: none;
+}
+
+.big-menu-popup{
+  align-self: start;
+  padding: 10%;
+  width: 14em;
+  background-color: white;
+  border: 1px solid rgba(0, 0, 0, 0.292);
+}
+
+.popup-overlay.popup-menu-overlay { 
+  margin-top: 5.75rem;
+  margin-left: 7%;
+  width: 100%;
+  height: 10rem;
+}
+
+.popup-menu-content{
+  margin: 0 !important;
+}
+
+
+.hamburger-menu-item{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.name-and-photo-in-menu{
+  display: flex;
+  gap: 1.3rem;
+  align-items: center;
+}
+
+.menu-text{
+  margin: 10% 0 10% 0;
 }
 
 
@@ -209,13 +282,13 @@ nav{
 }
 
 .quote-icon{
-  padding-left: 4.375rem;
+  padding-left: 7%;
   height: 1.563rem;
   width: 2.063rem;
 }
 
 .footer-text{
-  padding-right: 4.375rem;
+  padding-right: 7%;
   font-size: 0.75em;
   align-items: center;
 }
@@ -293,7 +366,6 @@ nav{
   border-color: var(--orange);
   color: var(--orange);
   margin-top: 2.063rem;
-  margin-bottom: 11.375rem;
 }
 
 .random-quote-card{
@@ -478,7 +550,7 @@ nav{
   margin-top: 0;
 }
 
-.popup-content{
+.center-popup-content{
   margin-left: auto;
   margin-right: auto;
   left: 0;
@@ -696,6 +768,7 @@ input{
 
 @media only screen and (max-width: 480px) {
 
+  /* RESPONSIVE SIGNUP AND LOGIN */
   .surname-input{
     margin-left: 0;
   }
@@ -720,3 +793,24 @@ input{
   }
 }
 
+/* NAV BECOMES HAMBURGER MENU */
+@media only screen and (max-width: 650px) {
+  .logo{
+    margin-left: auto;
+  }
+  .login-button{
+    display: none;
+  }
+  .signup-button{
+    display: none;
+  }
+  .hamburger-menu{
+    display:unset;
+  }
+  .hide-nav{
+    display: none;
+  }
+  .logo-center{
+    margin: auto;
+  }
+}

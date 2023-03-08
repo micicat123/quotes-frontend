@@ -1,12 +1,15 @@
 import axios from "axios";
+import { useRef } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { User } from "../models/user";
+import MenuPopup from "./pop-ups/Hamburger-menu";
 import CreateOrEditQuote from "./pop-ups/Quote-popups/Create-or-edit-quote";
 import Popups from "./pop-ups/User-popups/All-user-popups";
 
 const Nav = (props: {user: User}) => {
     
     let navigate = useNavigate();
+    const childRef = useRef<any>(null);
     
     const logout = async () =>{
         await axios.post('/auth/logout');
@@ -14,26 +17,19 @@ const Nav = (props: {user: User}) => {
         window.location.reload();
     }
 
+    function changePopups () {
+        if (childRef && childRef.current) {
+            childRef.current.openSettings();
+        }
+    }
+
     return(
         <>
-            {props.user.email == '' ? //user is not logged in
+            {window.location.pathname == '/signup' ? //user is on page signup
                 <>
                     <nav>
-                        <img src="/pictures/logo-black.png" alt="logo" className="logo" />
-                        <div className="nav-right">
-                            <Link to={'/signup'}>
-                                <button className="button signup-button"> <p className="button-text">Sign up</p> </button>
-                            </Link>
-                            <Link to={'/login'}>
-                                <button className="button login-button"> <p className="button-text">Log in</p> </button>
-                            </Link> 
-                        </div>
-                    </nav>    
-                </>
+                        <MenuPopup user="" logout={logout} openSettings={() => changePopups()}/>
 
-                :window.location.href == 'http://localhost:3000/signup' ? //user is on page signup
-                <>
-                    <nav>
                         <img src="/pictures/logo-black.png" alt="logo" className="logo" />
                         <div className="nav-right">
                             <Link to={'/login'}>
@@ -41,11 +37,13 @@ const Nav = (props: {user: User}) => {
                             </Link> 
                         </div>
                     </nav>    
-                </>    
+                </>   
 
-                :window.location.href == 'http://localhost:3000/login' ? //user is on page login
+                :window.location.pathname == '/login' ? //user is on page login
                 <>
                     <nav>
+                        <MenuPopup user="" logout={logout} openSettings={() => changePopups()}/>
+
                         <img src="/pictures/logo-black.png" alt="logo" className="logo" />
                         <div className="nav-right">
                             <Link to={'/signup'}>
@@ -53,11 +51,30 @@ const Nav = (props: {user: User}) => {
                             </Link>
                         </div>
                     </nav>
-                </>    
+                </> 
+            
+               :props.user.email == '' ? //user is not logged in
+                <>
+                    <nav>
+                        <MenuPopup user="" logout={logout} openSettings={() => changePopups()}/>
 
-                :window.location.href == 'http://localhost:3000/profile' ? //user is on profile page
+                        <img src="/pictures/logo-black.png" alt="logo" className="logo" />
+                        <div className="nav-right">
+                            <Link to={'/signup'}>
+                                <button className="button signup-button"> <p className="button-text">Sign up</p> </button>
+                            </Link>
+                            <Link to={'/login'}>
+                                <button className="button login-button"> <p className="button-text">Log in</p> </button>
+                            </Link> 
+                        </div>
+                    </nav>    
+                </>   
+
+                :window.location.pathname == '/profile' ? //user is on profile page
                 <>  
                     <nav className="profile-nav">
+                        <MenuPopup user={props.user.first_name + " " + props.user.last_name} logout={logout} openSettings={() => changePopups()}/>
+
                         <img src="/pictures/logo-white.png" alt="logo" className="logo" />
                         <div className="nav-right">
                             <ul className="list">
@@ -67,7 +84,7 @@ const Nav = (props: {user: User}) => {
                                     </Link>
                                 </li>
                                 <li style={{padding:'0 24px'}}>
-                                    <Popups/>
+                                    <Popups ref={childRef}/>
                                 </li>    
                                 <li>
                                     <p className="white-text" onClick={logout}>Logout</p>
@@ -88,21 +105,23 @@ const Nav = (props: {user: User}) => {
                 : //user is logged in
                 <>  
                     <nav>
-                        <img src="/pictures/logo-black.png" alt="logo" className="logo" />
+                        <MenuPopup user={props.user.first_name + " " + props.user.last_name} logout={logout} openSettings={() => changePopups()}/>
+
+                        <img src="/pictures/logo-black.png" alt="logo" className="logo logo-center" />
                         <div className="nav-right">
                             <ul className="list">
-                                <li>
+                                <li className="hide-nav">
                                     <Link to={'/'} className="nav-link">
                                         <p>Home</p>
                                     </Link>
                                 </li>
-                                <li style={{padding:'0 24px'}}>
-                                    <Popups orange={true}/>
+                                <li style={{padding:'0 24px'}} className="hide-nav">
+                                    <Popups orange={true} ref={childRef}/>
                                 </li>
-                                <li>
+                                <li className="hide-nav">
                                     <p onClick={logout} className="orange-text">Logout</p>
                                 </li>
-                                <li style={{padding:'0 16px 0 32px'}}>
+                                <li style={{padding:'0 16px 0 32px'}} className="hide-nav">
                                     <Link to={'/profile'}>
                                         <button className="circle profile-photo-circle"></button>
                                     </Link>

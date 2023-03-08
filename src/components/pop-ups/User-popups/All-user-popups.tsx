@@ -1,14 +1,21 @@
-import { useState } from "react";
+import { forwardRef, useState, useImperativeHandle } from "react";
 import Popup from "reactjs-popup";
 import UserInfoForm from "./User-info-form";
 import UserPassForm from "./User-pass-form";
 
-const UserPopups =  (props:any)  => {
-
+const UserPopups =  forwardRef((props:any, ref)  => {
     
     const [infoIsOpen, setInfoIsOpen] = useState(false);
     const [passIsOpen, setPassIsOpen] = useState(false);
     const [changedIsOpen, setChangedIsOpen] = useState(false);
+
+    useImperativeHandle(ref, () => ({
+
+        openSettings() {
+          setInfoIsOpen(true);
+        }
+    
+      }));
 
     const confirmation = () => {
         setChangedIsOpen(true);
@@ -27,7 +34,7 @@ const UserPopups =  (props:any)  => {
             {props.orange == true ?
                 <>
                     <p onClick={() => setInfoIsOpen(o => !o)} className="profile-list orange-text">Settings</p>
-                    <Popup open={infoIsOpen}>
+                    <Popup open={infoIsOpen} className="center-popup">
                         <UserInfoForm handleData={confirmation} changepass={switchToPassword}/>
                         <p onClick={() => setInfoIsOpen(o => !o)} className="cancel-text">Cancel</p>
                     </Popup>
@@ -35,7 +42,7 @@ const UserPopups =  (props:any)  => {
                 : 
                 <>
                     <p onClick={() => setInfoIsOpen(o => !o)} className="profile-list">Settings</p>
-                    <Popup open={infoIsOpen}>
+                    <Popup open={infoIsOpen} className="center-popup">
                         <UserInfoForm handleData={confirmation} changepass={switchToPassword}/>
                         <p onClick={() => setInfoIsOpen(o => !o)} className="cancel-text">Cancel</p>
                     </Popup>
@@ -43,13 +50,13 @@ const UserPopups =  (props:any)  => {
             }
 
             {/*PASSWORD SETTINGS*/}
-            <Popup open={passIsOpen}>
+            <Popup open={passIsOpen} className="center-popup">
                 <UserPassForm handleData={confirmation}/>
                 <p onClick={() => setPassIsOpen(false)} className="cancel-text-password">Cancel</p>   
             </Popup>
 
             {/*CONFIRMATION*/}
-            <Popup open={changedIsOpen}>
+            <Popup open={changedIsOpen} className="center-popup">
                  <div className="profile-settings-changed">
                     <h4 className="profile-h4">Profile <span className="orange-text">settings</span></h4>
                     <p>Your settings are saved</p>         
@@ -61,6 +68,6 @@ const UserPopups =  (props:any)  => {
 
         </>
     );
-}
+});
 
 export default UserPopups;

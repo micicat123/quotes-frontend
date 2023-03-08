@@ -41,7 +41,7 @@ const CreateOrEditQuote =  (props:any)  => {
                 <img src="/pictures/edit-quote.png" alt="Image" className="edit-remove-icon edit-icon" onClick={() => setQuoteIsOpen(o => !o)}/>
             }
 
-            <Popup open={quoteIsOpen}>
+            <Popup open={quoteIsOpen} className="center-popup">
                 <div className="crete-update-quote">
 
                     {props.create ?
@@ -74,7 +74,7 @@ const CreateOrEditQuote =  (props:any)  => {
 
             </Popup> 
 
-            <Popup open={Ischanged}>
+            <Popup open={Ischanged} className="center-popup">
                  <div className="confirmation-quote">
                     {props.create ?
                         <h5 className="profile-h4 centered-text">Your <span className="orange-text">quote</span><span> was created.</span></h5>

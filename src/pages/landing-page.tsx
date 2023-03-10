@@ -54,18 +54,18 @@ const LandingPage = () => {
       <Wrapper>  
         <div className='index-div'>
             <div className='first-flex-item'>
-                <h1 className='welcome-heading'>Welcome to <span className='orange-text'>Quotastic</span></h1>
+                <h1 className='welcome-heading'>Welcome <br /><span className='no-wrap'>to <span className='orange-text'>Quotastic</span></span></h1>
                 <h5 className='welcome-paragraph'>Quotastic is free online platform for you to explore the  quips, quotes, and proverbs. Sign up and express yourself.</h5>
                 <Link to={'/signup'}>
-                    <button className="button signup-button"> <p  className='button-text'>Sign up</p></button>
+                    <button className="button signup-button-landing"> <p  className='button-text'>Sign up</p></button>
                 </Link>  
             </div> 
             <div className='second-flex-item'>
-                <img src="/pictures/quotes-home.png" alt="Image"/>
+                <img src="/pictures/quotes-home.png" alt="Image" className='landing-page-picture'/>
             </div>             
         </div>
         <div className='index-div2'>
-            <h2 className='explore-heading centered-text'>Explore the world of <span className='orange-text'>fantastic quotes</span></h2>
+            <h2 className='explore-heading centered-text'>Explore the world of <br /><span className='orange-text'>fantastic quotes</span></h2>
         </div>
         <MostUpvotedQuotes NeedToLoadMore={false}/>
       </Wrapper>

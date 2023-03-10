@@ -12,14 +12,14 @@ h1, h2, h3, h4, h5, p{
 h1{
   font-size: 6.125em;
   font-weight: 300;
-  line-height: 5.625rem;
+  line-height: 112%;
   letter-spacing: -0.094rem;
 }
 
 h2{
   font-size: 3.8125em;
   font-weight: 300;
-  line-height: 4.5rem;
+  line-height: 118%;
   letter-spacing: -0.031rem;
 }
 
@@ -197,6 +197,14 @@ nav{
   background-color: var(--orange) !important;
   color: white;
 }
+.signup-button-landing{
+  width: 8.563rem;
+  height: 2.5rem;
+  margin-right: 1.938rem;
+  border: none;
+  background-color: var(--orange);
+  color: white;
+}
 
 .login-button{
   width: 8.563rem;
@@ -296,50 +304,62 @@ nav{
 
 /* LANDING PAGE */
 .index-div{
-  margin-left: 11.25rem;
+  margin-left: 11.7%;
+  width: 85%;
   display: flex;
   align-items: center;
-  gap: 9.063rem;
+  gap: 10%;
 }
 
 .first-flex-item{
   margin-top: 12.5rem;
+  width: 62%;
 }
 
 .welcome-heading{
   margin-bottom: 0;
   margin-top: 0;
+  font-size: clamp(2.188em, 8vw, 10rem);
+}
+
+.no-wrap{
+  white-space: nowrap;
 }
 
 .welcome-paragraph{
-  margin-top: 1rem;
-  width: 33.125rem;
+  width: 100%;
+  margin-top: 5%;
+}
+
+.landing-page-picture{
+  max-width: 150%;
 }
 
 .second-flex-item{
-  margin-top: 12.188rem;
-  margin-right: 8.688rem;
+  width: 28%;
+  margin-top: 20%;
+  margin-right: 10%;
 }
 
 .explore-heading{
-  width: 43.938rem;
-  margin-top: 10.875rem;
-  margin-bottom: 7.75rem;
+  width: 50%;
+  font-size: clamp(2.188em, 8vw, 3.8125em);
+
+  margin-top: 11.5%;
+  margin-bottom: 10%;
 }
 
 .p-under-h4{
-  width: 32.75rem;
-  margin-top: 0;
-  margin-bottom: 2.125rem;
+  width: 85%;
+  margin: 0 7.5% 7% 7.5%;
 }
 
 .quotes-layout{
   column-count: 3;
   column-gap: 1.188rem;
-  width: 81.25rem;
-  margin-left: auto;
-  margin-right: auto;
-  margin-bottom: 3rem;
+  margin-left: 7%;
+  margin-right: 7%;
+  margin-bottom: 4%;
 }
 
 .quote-card{
@@ -352,7 +372,6 @@ nav{
   gap: 1.313rem;
   page-break-inside: avoid;
   margin-bottom: 1.188rem;
-  width: 23.25rem;
   margin-left: auto;
   margin-right: auto;
 }
@@ -365,7 +384,6 @@ nav{
   border-style: solid;
   border-color: var(--orange);
   color: var(--orange);
-  margin-top: 2.063rem;
 }
 
 .random-quote-card{
@@ -812,5 +830,34 @@ input{
   }
   .logo-center{
     margin: auto;
+  }
+}
+
+/* RESPONSIVE LANDING PAGE */
+@media only screen and (max-width: 700px) {
+  .index-div{
+    flex-wrap: wrap;
+  }
+  .first-flex-item{
+    width: 100%;
+  }
+  .second-flex-item{
+    width: 100%;
+    margin-top: 8%;
+  }
+  .landing-page-picture{
+    width: 90%;
+    margin-left: 5%;
+  }
+  .explore-heading{
+    width: 60%;
+  }
+
+  .quotes-layout{
+    column-count: 1;
+    column-gap: 1.188rem;
+    margin-left: 5%;
+    margin-right: 5%;
+    margin-bottom: 3rem;
   }
 }

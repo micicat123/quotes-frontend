@@ -351,7 +351,7 @@ nav{
 
 .p-under-h4{
   width: 85%;
-  margin: 0 7.5% 7% 7.5%;
+  margin: 0 7.5% 2% 7.5%;
 }
 
 .quotes-layout{
@@ -386,15 +386,12 @@ nav{
   color: var(--orange);
 }
 
-.random-quote-card{
-  width: 23.25rem;
+.random-quote-div{
+  max-width: 26.25rem;
+  min-width: 14rem;
   margin-left: auto;
   margin-right: auto;
-  margin-bottom: 7.938rem;
-}
-
-.random-quote-upvotes{
-  padding-left: 0.188rem;
+  margin-bottom: 9%;
 }
 
 .arrow{
@@ -453,6 +450,7 @@ nav{
 
 .quote-settings{
   width: 1rem;
+  margin-left: auto;
 }
 
 .edit-remove-icon{
@@ -472,7 +470,7 @@ nav{
   background-color: white;
   border-color: var(--orange) !important;
   color: var(--orange);
-  margin-bottom: 8rem;
+  margin-bottom: 8%;
 }
 
 .signup-button-wide{
@@ -808,6 +806,12 @@ input{
 
   .login-div{
     margin: auto 2.0625em auto 2.0625em;
+  }
+
+  /* RESPONSIVE LANDING PAGE */
+  .random-quote-div{
+    margin-left: 5%;
+    margin-right: 5%;
   }
 }
 

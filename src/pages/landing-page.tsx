@@ -40,8 +40,9 @@ const LandingPage = () => {
                     <h4 className="orange-text centered-text">Quote of the day</h4>
                     <p className="centered-text  p-under-h4">Quote of the day is randomly choosen quote.</p> 
 
-    	            <MappedQuotes quotes={[randomQuote]}/>
-                    
+                    <div className='random-quote-div'>
+                        <MappedQuotes quotes={[randomQuote]}/>
+                    </div>  
                 </>
                 <MostUpvotedQuotes NeedToLoadMore={true}/>
                 <MostRecentQuotes/>

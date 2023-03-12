@@ -28,7 +28,7 @@ const Nav = (props: {user: User}) => {
             {window.location.pathname == '/signup' ? //user is on page signup
                 <>
                     <nav>
-                        <MenuPopup user="" logout={logout} openSettings={() => changePopups()}/>
+                        <MenuPopup user="" logout={logout} openSettings={() => changePopups()} white={false}/>
 
                         <img src="/pictures/logo-black.png" alt="logo" className="logo" />
                         <div className="nav-right">
@@ -42,7 +42,7 @@ const Nav = (props: {user: User}) => {
                 :window.location.pathname == '/login' ? //user is on page login
                 <>
                     <nav>
-                        <MenuPopup user="" logout={logout} openSettings={() => changePopups()}/>
+                        <MenuPopup user="" logout={logout} openSettings={() => changePopups()} white={false}/>
 
                         <img src="/pictures/logo-black.png" alt="logo" className="logo" />
                         <div className="nav-right">
@@ -56,7 +56,7 @@ const Nav = (props: {user: User}) => {
                :props.user.email == '' ? //user is not logged in
                 <>
                     <nav>
-                        <MenuPopup user="" logout={logout} openSettings={() => changePopups()}/>
+                        <MenuPopup user="" logout={logout} openSettings={() => changePopups()} white={false}/>
 
                         <img src="/pictures/logo-black.png" alt="logo" className="logo" />
                         <div className="nav-right">
@@ -73,23 +73,23 @@ const Nav = (props: {user: User}) => {
                 :window.location.pathname == '/profile' ? //user is on profile page
                 <>  
                     <nav className="profile-nav">
-                        <MenuPopup user={props.user.first_name + " " + props.user.last_name} logout={logout} openSettings={() => changePopups()}/>
+                        <MenuPopup user={props.user.first_name + " " + props.user.last_name} logout={logout} openSettings={() => changePopups()} white={true}/>
 
-                        <img src="/pictures/logo-white.png" alt="logo" className="logo" />
+                        <img src="/pictures/logo-white.png" alt="logo" className="logo logo-center" />
                         <div className="nav-right">
                             <ul className="list">
-                                <li>
+                                <li className="hide-nav">
                                     <Link to={'/'} className="nav-link-profile">
                                         <p className="profile-list">Home</p>
                                     </Link>
                                 </li>
-                                <li style={{padding:'0 24px'}}>
+                                <li style={{padding:'0 24px'}} className="hide-nav">
                                     <Popups ref={childRef}/>
                                 </li>    
-                                <li>
+                                <li className="hide-nav">
                                     <p className="white-text" onClick={logout}>Logout</p>
                                 </li>
-                                <li style={{padding:'0 16px 0 32px'}}>
+                                <li style={{padding:'0 16px 0 32px'}} className="hide-nav">
                                     <Link to={'/profile'}>
                                         <button className="circle profile-photo-circle"></button>
                                     </Link>
@@ -105,7 +105,7 @@ const Nav = (props: {user: User}) => {
                 : //user is logged in
                 <>  
                     <nav>
-                        <MenuPopup user={props.user.first_name + " " + props.user.last_name} logout={logout} openSettings={() => changePopups()}/>
+                        <MenuPopup user={props.user.first_name + " " + props.user.last_name} logout={logout} openSettings={() => changePopups()} white={false}/>
 
                         <img src="/pictures/logo-black.png" alt="logo" className="logo logo-center" />
                         <div className="nav-right">

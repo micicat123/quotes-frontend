@@ -232,6 +232,9 @@ nav{
   background-color: var(--orange);
   margin: 0.325rem 0;
 }
+.white{
+  background-color: white !important;
+}
 
 .hamburger-menu{
   display: none;
@@ -312,7 +315,7 @@ nav{
 }
 
 .first-flex-item{
-  margin-top: 12.5rem;
+  margin-top: 15.5%;
   width: 62%;
 }
 
@@ -400,7 +403,7 @@ nav{
   display: inline-block;
   padding: 0.25rem;  
   transform: rotate(-135deg);
-  margin-left: 0.5rem;
+  margin-left: 14%;
 }
 
 .orange-arrow{
@@ -409,7 +412,7 @@ nav{
   display: inline-block;
   padding: 0.25rem;  
   transform: rotate(-135deg);
-  margin-left: 0.5rem;
+  margin-left: 14%;
 }
 
 .up-arrow{
@@ -421,12 +424,16 @@ nav{
 }
 
 .upvotes-number{
-  margin: 0;
+  margin: 8% 0 8% 10%;
   text-align: center;
 }
 
 .voting{
   width: 1.688rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .center-div{
@@ -489,23 +496,24 @@ nav{
 }
 
 .lower-profile-page{
-  margin-top: 5.688rem;
-  margin-left: auto;
-  margin-right: auto;
+  column-count: 3;
+  column-gap: 3%;
+  padding-left: 5.9%;
+  padding-right: 5.9%;
+  margin-top: 7%;
   margin-bottom: 1.125rem;
-  width: 81.25rem;
-  display: flex;
+
 }
 
 .profile-photo-large{
   height: 5.375rem;
   width: 5.375rem;
-  margin-top: 6.25rem;
+  margin-top: 6%;
 }
 
 .name-surname-big{
   margin-top: 1.125rem;
-  margin-bottom: 2.375rem;
+  margin-bottom: 3%;
 }
 
 .statistics{
@@ -536,12 +544,7 @@ nav{
 }
 
 .profile-quotes{
-  width: 26.25rem;
-}
-
-.middle-quotes{
-  margin-left: 1.25rem;
-  margin-right: 1.25rem;
+  break-inside: avoid-column;
 }
 
 .profile-h5{
@@ -627,31 +630,26 @@ nav{
   left: 34%;
   top: 80.5%;
 }
-
 .cancel-text-password{
   position: absolute;
   left: 34%;
   top: 81.5%;
 }
-
 .cancel-text-delete{
   position: absolute;
   left: 34%;
   top: 78%;
 }
-
 .cancel-text-create-delete{
   position: absolute;
   left: 34%;
   top: 65%;
 }
-
 .cancel-text-edit{
   position: absolute;
   left: 34%;
   top: 72%;
 }
-
 .cancel-text-create{
   position: absolute;
   left: 34%;
@@ -815,8 +813,8 @@ input{
   }
 }
 
-/* NAV BECOMES HAMBURGER MENU */
 @media only screen and (max-width: 650px) {
+  /* NAV BECOMES HAMBURGER MENU */
   .logo{
     margin-left: auto;
   }
@@ -835,10 +833,13 @@ input{
   .logo-center{
     margin: auto;
   }
+  .list{
+    padding-inline-start: 0;
+  }
 }
 
-/* RESPONSIVE LANDING PAGE */
-@media only screen and (max-width: 700px) {
+@media only screen and (max-width: 600px) {
+  /* RESPONSIVE LANDING PAGE */
   .index-div{
     flex-wrap: wrap;
   }
@@ -847,7 +848,7 @@ input{
   }
   .second-flex-item{
     width: 100%;
-    margin-top: 8%;
+    margin-top: 10%;
   }
   .landing-page-picture{
     width: 90%;
@@ -856,12 +857,45 @@ input{
   .explore-heading{
     width: 60%;
   }
-
   .quotes-layout{
     column-count: 1;
-    column-gap: 1.188rem;
+  }
+  .p-under-h4{
+    margin-bottom: 5%;
+  }
+}
+
+@media only screen and (min-width: 600px) and (max-width: 900px) {
+  /* RESPONSIVE LANDING PAGE */
+  .quotes-layout{
+    column-count: 2;
     margin-left: 5%;
     margin-right: 5%;
     margin-bottom: 3rem;
   }
+  .p-under-h4{
+    margin-bottom: 5%;
+  }
 }
+
+@media only screen and (max-width: 750px) {
+  /* RESPONSIVE PROFILE PAGE */
+  .upper-profile-page{
+    height: 16rem;
+  }
+  .lower-profile-page{
+    column-count: 1;
+  }
+  .profile-h5{
+    margin-top: 8%;
+  }
+}
+
+@media only screen and (min-width: 750px) and (max-width: 1200px) {
+  /* RESPONSIVE PROFILE PAGE */
+  .upper-profile-page{
+    height: 18rem;
+  }
+}
+
+

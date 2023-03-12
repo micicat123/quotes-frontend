@@ -2,17 +2,26 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import Popup from "reactjs-popup";
 
-const MenuPopup =  (props:{user:String, logout:Function, openSettings:Function})  => {
+const MenuPopup =  (props:{user:String, logout:Function, openSettings:Function, white:boolean})  => {
 
     const [isOpen, setIsOpen] = useState(false);
     
     return(
-        <>        
-            <div className="hamburger-menu" onClick={() => setIsOpen(o => !o)}>
-                <div className="menu-icon"></div>
-                <div className="menu-icon"></div>
-                <div className="menu-icon"></div>
-            </div>
+        <> 
+            {props.white?
+                <div className="hamburger-menu" onClick={() => setIsOpen(o => !o)}>
+                    <div className="menu-icon white"></div>
+                    <div className="menu-icon white"></div>
+                    <div className="menu-icon white"></div>
+                </div>
+                :
+                <div className="hamburger-menu" onClick={() => setIsOpen(o => !o)}>
+                    <div className="menu-icon"></div>
+                    <div className="menu-icon"></div>
+                    <div className="menu-icon"></div>
+                </div>
+            }       
+            
 
             <Popup open={isOpen} className="popup-menu">
                 {props.user == '' ?

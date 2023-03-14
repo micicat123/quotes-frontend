@@ -556,12 +556,15 @@ nav{
 
 /* PROFILE SETTINGS */
 .profile-settings{
-  width: 525px;
+  margin: 0;
   background-color: white;
   box-shadow: 0rem 0rem 0.rem rgba(0, 0, 0, 0.15);
   border-radius: 1rem;
   padding: 2rem;
   border: 0.125rem solid black;
+}
+.user-popup-content{
+  width: 42.5%;
 }
 
 .profile-h4{
@@ -569,11 +572,13 @@ nav{
   margin-top: 0;
 }
 
-.center-popup-content{
-  margin-left: auto;
-  margin-right: auto;
-  left: 0;
-  right: 0; 
+.name-surname-popup{
+  display: flex;
+  gap: 5%;
+}
+
+.name-input-popup{
+  width: 50%;
 }
 
 .input-big{
@@ -604,14 +609,14 @@ nav{
   font-family: 'Raleway';
   border-radius: 6.25rem;
   border: none;
-  width: 16.031rem;
+  width: 50%;
   height: 2.5rem;
 }
 
 .submit-button-small{
   margin-top: 1rem;
   margin-right: 1.875rem;
-  width: 8.563rem;
+  width: 25% !important;
   height: 2.5rem;
   background-color: var(--orange) !important;
   color: white;
@@ -659,7 +664,6 @@ nav{
 /* PROFILE SETTINGS CHANGED */
 
 .profile-settings-changed{
-  width: 32.813rem;
   background-color: white;
   box-shadow: 0rem 0rem 0.5rem rgba(0, 0, 0, 0.15);
   border-radius: 1rem;
@@ -897,5 +901,23 @@ input{
     height: 18rem;
   }
 }
+
+/* RESPONSIVE POPUPS */
+@media only screen and (min-width: 810px) and (max-width: 1050px) {
+  .user-popup-content{
+    width: 55%;
+  }
+}
+@media only screen and (min-width: 600px) and (max-width: 810px) {
+  .user-popup-content{
+    width: 75%;
+  }
+}
+@media only screen and (min-width: 0px) and (max-width: 600px) {
+  .user-popup-content{
+    width: 97%;
+  }
+}
+
 
 

@@ -34,29 +34,25 @@ const UserPopups =  forwardRef((props:any, ref)  => {
             {props.orange == true ?
                 <>
                     <p onClick={() => setInfoIsOpen(o => !o)} className="profile-list orange-text">Settings</p>
-                    <Popup open={infoIsOpen} className="center-popup">
-                        <UserInfoForm handleData={confirmation} changepass={switchToPassword}/>
-                        <p onClick={() => setInfoIsOpen(o => !o)} className="cancel-text">Cancel</p>
-                    </Popup>
                 </> 
                 : 
                 <>
                     <p onClick={() => setInfoIsOpen(o => !o)} className="profile-list">Settings</p>
-                    <Popup open={infoIsOpen} className="center-popup">
-                        <UserInfoForm handleData={confirmation} changepass={switchToPassword}/>
-                        <p onClick={() => setInfoIsOpen(o => !o)} className="cancel-text">Cancel</p>
-                    </Popup>
                 </> 
             }
+            <Popup open={infoIsOpen} className="user-popup">
+                <UserInfoForm handleData={confirmation} changepass={switchToPassword}/>
+                <p onClick={() => setInfoIsOpen(o => !o)} className="cancel-text">Cancel</p>
+            </Popup>
 
             {/*PASSWORD SETTINGS*/}
-            <Popup open={passIsOpen} className="center-popup">
+            <Popup open={passIsOpen} className="user-popup">
                 <UserPassForm handleData={confirmation}/>
                 <p onClick={() => setPassIsOpen(false)} className="cancel-text-password">Cancel</p>   
             </Popup>
 
             {/*CONFIRMATION*/}
-            <Popup open={changedIsOpen} className="center-popup">
+            <Popup open={changedIsOpen} className="user-popup">
                  <div className="profile-settings-changed">
                     <h4 className="profile-h4">Profile <span className="orange-text">settings</span></h4>
                     <p>Your settings are saved</p>         

@@ -59,8 +59,8 @@ const UserInfoForm =  (props: {handleData: Function, changepass: Function})  => 
                   className="input-big"
                 />
                 
-                <div className="name-surname">
-                    <div>
+                <div className="name-surname-popup">
+                    <div className="name-input-popup">
                         <label htmlFor="first-name"><p className='label-text'>First Name</p></label>
                         <input 
                         defaultValue={first_name}
@@ -71,7 +71,7 @@ const UserInfoForm =  (props: {handleData: Function, changepass: Function})  => 
                         className='name-input-big input-big'
                         />
                     </div>
-                    <div>
+                    <div className="name-input-popup">
                         <label htmlFor="last-name"><p className='label-text'>Last Name</p></label>
                         <input 
                         defaultValue={last_name}
@@ -86,7 +86,7 @@ const UserInfoForm =  (props: {handleData: Function, changepass: Function})  => 
 
                 <div className='error-message'>{errorMessage}</div>
 
-                <div className="name-surname">
+                <div className="name-surname-popup">
                     <button type="button" className="medium-button yellow-background" onClick={() => props.changepass()}>Change password</button>
                     <button type="button" disabled className="medium-button orange-background">Change profile picture</button>
                 </div>

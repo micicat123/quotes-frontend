@@ -36,12 +36,12 @@ const CreateOrEditQuote =  (props:any)  => {
     return(
         <>
             {props.create ? 
-                <button className="circle add-quote-circle" onClick={() => setQuoteIsOpen(o => !o)}></button>
+                <button className="circle add-quote-circle" onClick={() => setQuoteIsOpen(true)}></button>
                 :
-                <img src="/pictures/edit-quote.png" alt="Image" className="edit-remove-icon edit-icon" onClick={() => setQuoteIsOpen(o => !o)}/>
+                <img src="/pictures/edit-quote.png" alt="Image" className="edit-remove-icon edit-icon" onClick={() => setQuoteIsOpen(true)}/>
             }
 
-            <Popup open={quoteIsOpen} className="quote-popup">
+            <Popup open={quoteIsOpen} className="quote-popup" onClose={() => setQuoteIsOpen(false)}>
                 <div className="crete-update-quote">
 
                     {props.create ?

@@ -33,14 +33,14 @@ const UserPopups =  forwardRef((props:any, ref)  => {
             {/*INFO SETTINGS*/}
             {props.orange == true ?
                 <>
-                    <p onClick={() => setInfoIsOpen(o => !o)} className="profile-list orange-text">Settings</p>
+                    <p onClick={() => setInfoIsOpen(true)} className="profile-list orange-text">Settings</p>
                 </> 
                 : 
-                <>
-                    <p onClick={() => setInfoIsOpen(o => !o)} className="profile-list">Settings</p>
+                <>  
+                    <p onClick={() => setInfoIsOpen(true)} className="profile-list">Settings</p>
                 </> 
             }
-            <Popup open={infoIsOpen} className="user-popup">
+            <Popup open={infoIsOpen} className="user-popup" onClose={() => setInfoIsOpen(false)}>
                 <UserInfoForm handleData={confirmation} changepass={switchToPassword}/>
                 <p onClick={() => setInfoIsOpen(o => !o)} className="cancel-text">Cancel</p>
             </Popup>

@@ -9,13 +9,13 @@ const MenuPopup =  (props:{user:String, logout:Function, openSettings:Function, 
     return(
         <> 
             {props.white?
-                <div className="hamburger-menu" onClick={() => setIsOpen(o => !o)}>
+                <div className="hamburger-menu" onClick={() => setIsOpen(true)}>
                     <div className="menu-icon white"></div>
                     <div className="menu-icon white"></div>
                     <div className="menu-icon white"></div>
                 </div>
                 :
-                <div className="hamburger-menu" onClick={() => setIsOpen(o => !o)}>
+                <div className="hamburger-menu" onClick={() => setIsOpen(true)}>
                     <div className="menu-icon"></div>
                     <div className="menu-icon"></div>
                     <div className="menu-icon"></div>
@@ -23,7 +23,7 @@ const MenuPopup =  (props:{user:String, logout:Function, openSettings:Function, 
             }       
             
 
-            <Popup open={isOpen} className="popup-menu">
+            <Popup open={isOpen} className="popup-menu" onClose={() => setIsOpen(false)}>
                 {props.user == '' ?
                     <>
                         <div className="big-menu-popup">

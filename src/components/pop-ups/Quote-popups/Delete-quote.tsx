@@ -22,9 +22,9 @@ const DeleteQuote =  (props:any)  => {
 
     return(
         <>
-            <img src="/pictures/delete-quote.png" alt="Image" className="edit-remove-icon" onClick={() => setIsOpen(o => !o)}/>
+            <img src="/pictures/delete-quote.png" alt="Image" className="edit-remove-icon" onClick={() => setIsOpen(true)}/>
 
-            <Popup open={IsOpen} className="quote-popup">
+            <Popup open={IsOpen} className="quote-popup" onClose={() => setIsOpen(false)}>
                 <div className="crete-update-quote">
                     <h4 className="profile-h4">Are you sure?</h4>        
                     <p>You can post quotes. You can delete them on your profile.</p>

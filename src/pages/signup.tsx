@@ -103,9 +103,9 @@ const Signup = () => {
 
                 <input type="submit" value="Sign up" className='signup-button-wide'/>
                 
-                <div>
+                <div className='text-under-form'>
                   <p className='inline'>Already have an account?</p>
-                  <p className='inline right-text'><a href="/login" className='alternative-text'>Sign in</a></p>
+                  <p className='inline second-text'><a href="/login" className='alternative-text'>Sign in</a></p>
                 </div>
             </form>
             <div>

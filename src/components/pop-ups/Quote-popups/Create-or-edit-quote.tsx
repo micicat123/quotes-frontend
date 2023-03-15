@@ -41,7 +41,7 @@ const CreateOrEditQuote =  (props:any)  => {
                 <img src="/pictures/edit-quote.png" alt="Image" className="edit-remove-icon edit-icon" onClick={() => setQuoteIsOpen(o => !o)}/>
             }
 
-            <Popup open={quoteIsOpen} className="center-popup">
+            <Popup open={quoteIsOpen} className="quote-popup">
                 <div className="crete-update-quote">
 
                     {props.create ?
@@ -65,6 +65,7 @@ const CreateOrEditQuote =  (props:any)  => {
                         </div>
 
                     </form>
+
                 </div>
                 {props.create ?
                         <p onClick={() => setQuoteIsOpen(false)} className="cancel-text-create">Cancel</p>
@@ -74,7 +75,7 @@ const CreateOrEditQuote =  (props:any)  => {
 
             </Popup> 
 
-            <Popup open={Ischanged} className="center-popup">
+            <Popup open={Ischanged} className="confirm-popup">
                  <div className="confirmation-quote">
                     {props.create ?
                         <h5 className="profile-h4 centered-text">Your <span className="orange-text">quote</span><span> was created.</span></h5>
@@ -82,7 +83,7 @@ const CreateOrEditQuote =  (props:any)  => {
                         <h5 className="profile-h4 centered-text">Your <span className="orange-text">quote</span><span> was edited.</span></h5>
                     }
                     <div className="name-surname flex-button">
-                        <input type="submit" value="Close" className='submit-button-small' onClick={() => {setIsChanged(false); window.location.reload();}}/>
+                        <input type="submit" value="Close" className='submit-button-small centered-text' onClick={() => {setIsChanged(false); window.location.reload();}}/>
                     </div>
                 </div>    
             </Popup> 

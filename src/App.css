@@ -73,8 +73,8 @@ p{
 }
 
 .centered-text{
-  margin-left: auto;
-  margin-right: auto;
+  margin-left: auto !important;
+  margin-right: auto !important;
   text-align: center;
 }
 
@@ -554,7 +554,7 @@ nav{
 }
 
 
-/* PROFILE SETTINGS */
+/* PROFILE SETTINGS POPUPS*/
 .profile-settings{
   margin: 0;
   background-color: white;
@@ -563,8 +563,18 @@ nav{
   padding: 2rem;
   border: 0.125rem solid black;
 }
+
+.profile-settings-changed{
+  background-color: white;
+  box-shadow: 0rem 0rem 0.5rem rgba(0, 0, 0, 0.15);
+  border-radius: 1rem;
+  padding: 2rem;
+  border: 0.125rem solid black;
+}
+
 .user-popup-content{
-  width: 42.5%;
+  min-width: 42.5%;
+  max-width: 97%;
 }
 
 .profile-h4{
@@ -579,15 +589,6 @@ nav{
 
 .name-input-popup{
   width: 50%;
-}
-
-.input-big{
-  border-radius: 6.25rem;
-  background-color: white !important;
-  border: 0.125rem solid var(--orange);
-  padding: 0.625rem;
-  width: 33.063rem;
-  box-sizing: border-box;
 }
 
 .name-input-big{
@@ -661,29 +662,31 @@ nav{
   top: 76%;
 }
 
-/* PROFILE SETTINGS CHANGED */
-
-.profile-settings-changed{
-  background-color: white;
-  box-shadow: 0rem 0rem 0.5rem rgba(0, 0, 0, 0.15);
-  border-radius: 1rem;
-  padding: 2rem;
-  border: 0.125rem solid black;
-}
 
 /* CREATE OR EDIT QUOTE */
 .crete-update-quote{
   background-color: white;
   height: auto;
 
-  width: 32.813rem;
-
   box-shadow: 0rem 0rem 0.5rem rgba(0, 0, 0, 0.15);
   border-radius: 1rem;
   padding: 2rem;
   border: 0.125rem solid black;
 }
+.quote-popup-content{
+  min-width: 35% !important;
+  max-width: 90% !important;
+}
 
+
+.input-big{
+  border-radius: 6.25rem;
+  background-color: white !important;
+  border: 0.125rem solid var(--orange);
+  padding: 0.625rem;
+  width: 100%;
+  box-sizing: border-box;
+}
 textarea{
   border: 0.125rem solid #DE8667 !important;
   font-size: 1em;
@@ -697,12 +700,15 @@ textarea{
   background-color: white;
   height: auto;
 
-  width: 19.813rem;
-
   box-shadow: 0rem 0rem 0.5rem rgba(0, 0, 0, 0.15);
   border-radius: 1rem;
   padding: 2rem;
   border: 0.125rem solid black;
+}
+
+.confirm-popup-content{
+  min-width: 25%;
+  max-width: 90%;
 }
 
 /* LOGIN */
@@ -842,6 +848,13 @@ input{
   }
 }
 
+@media only screen and (max-width: 400px) {
+  /* RESPONSIVE POPUP SUBMIT BUTTON */
+  .submit-button-small {
+  width: 27% !important;
+  }
+}
+
 @media only screen and (max-width: 600px) {
   /* RESPONSIVE LANDING PAGE */
   .index-div{
@@ -902,20 +915,20 @@ input{
   }
 }
 
-/* RESPONSIVE POPUPS */
-@media only screen and (min-width: 810px) and (max-width: 1050px) {
-  .user-popup-content{
-    width: 55%;
+
+@media only screen and (min-width: 365px) and (max-width: 535px) {
+  .cancel-text-create{
+    top: 80%;
   }
 }
-@media only screen and (min-width: 600px) and (max-width: 810px) {
-  .user-popup-content{
-    width: 75%;
+@media only screen and (max-width: 365px){
+  .cancel-text-create{
+    top: 81.5%;
   }
 }
-@media only screen and (min-width: 0px) and (max-width: 600px) {
-  .user-popup-content{
-    width: 97%;
+@media only screen and (max-width: 372px){
+  .cancel-text-edit{
+    top: 77%;
   }
 }
 

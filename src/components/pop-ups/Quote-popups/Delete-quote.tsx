@@ -24,7 +24,7 @@ const DeleteQuote =  (props:any)  => {
         <>
             <img src="/pictures/delete-quote.png" alt="Image" className="edit-remove-icon" onClick={() => setIsOpen(o => !o)}/>
 
-            <Popup open={IsOpen} className="center-popup">
+            <Popup open={IsOpen} className="quote-popup">
                 <div className="crete-update-quote">
                     <h4 className="profile-h4">Are you sure?</h4>        
                     <p>You can post quotes. You can delete them on your profile.</p>
@@ -35,11 +35,11 @@ const DeleteQuote =  (props:any)  => {
                 <p onClick={() => setIsOpen(false)} className="cancel-text-create-delete">Cancel</p>
             </Popup> 
 
-            <Popup open={Ischanged} className="center-popup">
+            <Popup open={Ischanged} className="confirm-popup">
                  <div className="confirmation-quote">
                     <h5 className="profile-h4 centered-text">Your <span className="orange-text">quote</span><span> was deleted.</span></h5>
                     <div className="name-surname flex-button">
-                        <input type="submit" value="Close" className='submit-button-small' onClick={() => {setIsChanged(false); window.location.reload();}}/>
+                        <input type="submit" value="Close" className='submit-button-small centered-text' onClick={() => {setIsChanged(false); window.location.reload();}}/>
                     </div>
                 </div>    
             </Popup> 

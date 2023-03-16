@@ -1,5 +1,6 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import { Quote } from "../../models/quote";
 import { User } from "../../models/user";
 import { UpvoteDownvote } from "../Common funtions/Voting";
@@ -62,7 +63,7 @@ const MappedQuotes = (props: any) => {
                             <div className="voting">
                                 {status == 0 ?
                                     <>
-                                        <i className="up-arrow arrow" onClick={() => UpvoteDownvote(quote.quote_id, true, quote.user.user_id, user.user_id)}></i>
+                                        <i className="up-arrow arrow" onClick={() => {UpvoteDownvote(quote.quote_id, true, quote.user.user_id, user.user_id)}}></i>
                                         <p className="upvotes-number">{quote.upvotes}</p>
                                         <i className="down-arrow orange-arrow" onClick={() => UpvoteDownvote(quote.quote_id, false, quote.user.user_id, user.user_id)}></i>
                                     </>    
@@ -81,15 +82,17 @@ const MappedQuotes = (props: any) => {
 
                                 }
                             </div>
-                            <div className="quote-and-author">
-                                <div>
-                                    <p>{quote.quote}</p>
+                                <div className="quote-and-author">
+                                    <div>
+                                        <p>{quote.quote}</p>
+                                    </div>
+                                    <Link to={'/profile'} state={{ user: quote.user }} className="nav-link-profile">
+                                        <div className="quote-author">
+                                            <img src="/pictures/profile-photo.png" alt="Image" className="profile-photo-small" />
+                                            <p className="caption">{quote.user.first_name} {quote.user.last_name}</p>
+                                        </div>
+                                    </Link>
                                 </div>
-                                <div className="quote-author">
-                                    <img src="/pictures/profile-photo.png" alt="Image" className="profile-photo-small" />
-                                    <p className="caption">{quote.user.first_name} {quote.user.last_name}</p>
-                                </div>
-                            </div>
                             <div className="quote-settings">
                                 {user.first_name == quote.user.first_name && user.last_name == quote.user.last_name?
                                     <>

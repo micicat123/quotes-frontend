@@ -11,7 +11,6 @@ export const UpvoteDownvote = (quote_id:number, upvote:boolean, user_id_of_quote
     .catch(error => {
       console.error(error);
     });
-    window.location.reload();
   }
 
   else{
@@ -19,6 +18,6 @@ export const UpvoteDownvote = (quote_id:number, upvote:boolean, user_id_of_quote
     .catch(error => {
       console.error(error);
     });
-    window.location.reload();
   }
+  window.location.reload();
 };

@@ -112,6 +112,10 @@ li{
   transform: rotate(-45deg) !important;
 }
 
+.black-border{
+  border: 1.6px solid rgba(0, 0, 0, 0.426) !important;
+}
+
 /* NAVBAR */
 nav{
   padding-top: 3rem;

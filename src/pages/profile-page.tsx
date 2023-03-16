@@ -1,10 +1,9 @@
 import  { useEffect, useState } from 'react';
 import Wrapper from '../components/Wrapper';
 import axios from 'axios';
-import { Navigate } from 'react-router-dom';
+import { Navigate, useLocation } from 'react-router-dom';
 import MappedQuotes from '../components/home-page/MappedQuotes';
 import { User } from '../models/user';
-import { Quote } from '../models/quote';
 
 const Profilepage = () => {
 
@@ -16,23 +15,31 @@ const Profilepage = () => {
     const [statistics, setStatistics] = useState<any>();
     const [redirect, setRediect] = useState(false);
 
+    const location = useLocation();
+
     useEffect(() => {
-        (
-            async () =>{
+        setUser(location.state.user);
+      }, []);
+
+    useEffect(() => {
+        if (user.first_name != '') {
+            console.log(user);
+            (async () =>{
                 try{
-                    setUser(await (await axios.get('/auth/user')).data);
-                    setUsersQuotes(usersQuotes.concat((await axios.get(`/user/quotes/${page}`)).data));
-                    setQuotesUserLiked(quotesUserLiked.concat((await axios.get(`/user/quotes-liked/${page}`)).data));
-                    setUsersMostLikedQuotes(usersMostLikedQuotes.concat((await axios.get(`/user/most-liked-quotes/${page}`)).data));
-                    setStatistics(await (await axios.get('/user/statistics')).data);
+      
+                    setStatistics(await (await axios.get(`/user/statistics/${user.user_id}`)).data);
+                    setUsersQuotes(usersQuotes.concat((await axios.get(`/user/quotes/${page}/${user.user_id}`)).data));
+                    setQuotesUserLiked(quotesUserLiked.concat((await axios.get(`/user/quotes-liked/${page}/${user.user_id}`)).data));
+                    setUsersMostLikedQuotes(usersMostLikedQuotes.concat((await axios.get(`/user/most-liked-quotes/${page}/${user.user_id}`)).data));
                     
                 }catch(err){
                     console.log(err);
                     setRediect(true);
-                }
-            }
-        )();
-      }, [page]);
+                }   
+              }
+            )();
+        }
+      }, [page, user]);
 
     function loadMore(){
         setPage(page + 1);

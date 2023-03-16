@@ -53,21 +53,35 @@ const Nav = (props: {user: User}) => {
                     </nav>
                 </> 
             
-               :props.user.email == '' ? //user is not logged in
+               :props.user.email == ''? //user is not logged in
                 <>
-                    <nav>
+                {window.location.pathname != '/profile' ?
+                            <nav>
+                                <img src="/pictures/logo-black.png" alt="logo" className="logo" />
+                                <div className="nav-right">
+                                    <Link to={'/signup'}>
+                                        <button className="button signup-button"> <p className="button-text">Sign up</p> </button>
+                                    </Link>
+                                    <Link to={'/login'}>
+                                        <button className="button login-button"> <p className="button-text">Log in</p> </button>
+                                    </Link> 
+                                </div>
+                            </nav>
+                            :
+                            <nav className="profile-nav">
+                                <img src="/pictures/logo-white.png" alt="logo" className="logo" />
+                                <div className="nav-right">
+                                    <Link to={'/signup'}>
+                                        <button className="button signup-button black-border"> <p className="button-text">Sign up</p> </button>
+                                    </Link>
+                                    <Link to={'/login'}>
+                                        <button className="button login-button"> <p className="button-text">Log in</p> </button>
+                                    </Link> 
+                                </div>
+                            </nav>
+                        }
                         <MenuPopup user="" logout={logout} openSettings={() => changePopups()} white={false}/>
-
-                        <img src="/pictures/logo-black.png" alt="logo" className="logo" />
-                        <div className="nav-right">
-                            <Link to={'/signup'}>
-                                <button className="button signup-button"> <p className="button-text">Sign up</p> </button>
-                            </Link>
-                            <Link to={'/login'}>
-                                <button className="button login-button"> <p className="button-text">Log in</p> </button>
-                            </Link> 
-                        </div>
-                    </nav>    
+ 
                 </>   
 
                 :window.location.pathname == '/profile' ? //user is on profile page
@@ -90,7 +104,7 @@ const Nav = (props: {user: User}) => {
                                     <p className="white-text" onClick={logout}>Logout</p>
                                 </li>
                                 <li style={{padding:'0 16px 0 32px'}} className="hide-nav">
-                                    <Link to={'/profile'}>
+                                    <Link to={'/profile'} state={{ user: props.user }}>
                                         <button className="circle profile-photo-circle"></button>
                                     </Link>
                                 </li>
@@ -122,7 +136,7 @@ const Nav = (props: {user: User}) => {
                                     <p onClick={logout} className="orange-text">Logout</p>
                                 </li>
                                 <li style={{padding:'0 16px 0 32px'}} className="hide-nav">
-                                    <Link to={'/profile'}>
+                                    <Link to={'/profile'} state={{ user: props.user }}>
                                         <button className="circle profile-photo-circle"></button>
                                     </Link>
                                 </li>    

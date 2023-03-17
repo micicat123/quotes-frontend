@@ -57,6 +57,7 @@ const Nav = (props: {user: User}) => {
                 <>
                 {window.location.pathname != '/profile' ?
                             <nav>
+                                <MenuPopup user="" logout={logout} openSettings={() => changePopups()} white={false}/>
                                 <img src="/pictures/logo-black.png" alt="logo" className="logo" />
                                 <div className="nav-right">
                                     <Link to={'/signup'}>
@@ -69,10 +70,11 @@ const Nav = (props: {user: User}) => {
                             </nav>
                             :
                             <nav className="profile-nav">
+                                <MenuPopup user="" logout={logout} openSettings={() => changePopups()} white={true}/>
                                 <img src="/pictures/logo-white.png" alt="logo" className="logo" />
                                 <div className="nav-right">
                                     <Link to={'/signup'}>
-                                        <button className="button signup-button black-border"> <p className="button-text">Sign up</p> </button>
+                                        <button className="button signup-button white-border"> <p className="button-text">Sign up</p> </button>
                                     </Link>
                                     <Link to={'/login'}>
                                         <button className="button login-button"> <p className="button-text">Log in</p> </button>
@@ -80,8 +82,6 @@ const Nav = (props: {user: User}) => {
                                 </div>
                             </nav>
                         }
-                        <MenuPopup user="" logout={logout} openSettings={() => changePopups()} white={false}/>
- 
                 </>   
 
                 :window.location.pathname == '/profile' ? //user is on profile page

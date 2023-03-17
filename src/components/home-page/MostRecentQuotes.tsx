@@ -5,12 +5,14 @@ import MappedQuotes from "./MappedQuotes";
 const MostRecentQuotes = () => {
     const [page, setPage] = useState(1);
     const [quotes, setQuotes] = useState<any>([]);
+    const [lastPage, setLastPage] = useState(false);
 
     useEffect(() => {
         
         axios.get(`/quote/most-recent/${page}`)
         .then(response => {
-            setQuotes(quotes.concat(response.data));
+            setQuotes(quotes.concat(response.data.data));
+            setLastPage(response.data.isLastPage);
         })
         .catch(error => {
           console.error(error);
@@ -25,9 +27,13 @@ const MostRecentQuotes = () => {
             <div className="quotes-layout">
                 <MappedQuotes quotes = {quotes}/>
             </div>
-            <div className='center-div'>
-                <button onClick={() => {setPage(page + 1)}} className='button load-more-button'>Load more</button>
-            </div>  
+            {lastPage?
+                <></>
+                :
+                <div className='center-div'>
+                    <button onClick={() => {setPage(page + 1)}} className='button load-more-button'>Load more</button>
+                </div>  
+            }
         </>
     )
 }

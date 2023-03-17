@@ -112,8 +112,8 @@ li{
   transform: rotate(-45deg) !important;
 }
 
-.black-border{
-  border: 1.6px solid rgba(0, 0, 0, 0.426) !important;
+.white-border{
+  border: 1.6px solid rgba(255, 255, 255, 0.426) !important;
 }
 
 /* NAVBAR */
@@ -482,6 +482,10 @@ nav{
   border-color: var(--orange) !important;
   color: var(--orange);
   margin-bottom: 8%;
+}
+
+.hidden-button {
+  display: none;
 }
 
 .signup-button-wide{
@@ -909,6 +913,9 @@ input{
   }
   .profile-h5{
     margin-top: 8%;
+  }
+  .hidden-button {
+    display: block;
   }
 }
 

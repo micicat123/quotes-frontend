@@ -23,15 +23,12 @@ const Profilepage = () => {
 
     useEffect(() => {
         if (user.first_name != '') {
-            console.log(user);
             (async () =>{
                 try{
-      
                     setStatistics(await (await axios.get(`/user/statistics/${user.user_id}`)).data);
                     setUsersQuotes(usersQuotes.concat((await axios.get(`/user/quotes/${page}/${user.user_id}`)).data));
                     setQuotesUserLiked(quotesUserLiked.concat((await axios.get(`/user/quotes-liked/${page}/${user.user_id}`)).data));
                     setUsersMostLikedQuotes(usersMostLikedQuotes.concat((await axios.get(`/user/most-liked-quotes/${page}/${user.user_id}`)).data));
-                    
                 }catch(err){
                     console.log(err);
                     setRediect(true);
@@ -83,10 +80,18 @@ const Profilepage = () => {
                         <h5 className='orange-text profile-h5'>Most liked quotes</h5>
                         <MappedQuotes quotes={usersMostLikedQuotes}/>
                     </div>
+                    <div className='center-div hidden-button'>
+                        <button onClick={loadMore} className='button load-more-button'>Load more</button>
+                    </div>  
+
                     <div className='profile-quotes middle-quotes'>
                         <h5 className='profile-h5'>Most recent</h5>
                         <MappedQuotes quotes={usersQuotes}/>
                     </div>
+                    <div className='center-div hidden-button'>
+                        <button onClick={loadMore} className='button load-more-button'>Load more</button>
+                    </div>  
+
                     <div className='profile-quotes'>
                         <h5 className='profile-h5'>Liked</h5>
                         <MappedQuotes quotes={quotesUserLiked}/>

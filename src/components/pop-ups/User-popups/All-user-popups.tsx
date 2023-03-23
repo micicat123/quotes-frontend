@@ -1,5 +1,6 @@
 import { forwardRef, useState, useImperativeHandle } from "react";
 import Popup from "reactjs-popup";
+import UploadImage from "./User-image-form";
 import UserInfoForm from "./User-info-form";
 import UserPassForm from "./User-pass-form";
 
@@ -8,6 +9,7 @@ const UserPopups =  forwardRef((props:any, ref)  => {
     const [infoIsOpen, setInfoIsOpen] = useState(false);
     const [passIsOpen, setPassIsOpen] = useState(false);
     const [changedIsOpen, setChangedIsOpen] = useState(false);
+    const [imageIsOpen, setImageIsOpen] = useState(false);
 
     useImperativeHandle(ref, () => ({
 
@@ -20,12 +22,17 @@ const UserPopups =  forwardRef((props:any, ref)  => {
     const confirmation = () => {
         setChangedIsOpen(true);
         setInfoIsOpen(false);
-        setPassIsOpen(false)
+        setPassIsOpen(false);
+        setImageIsOpen(false);
     }
 
     const switchToPassword = () => {
         setInfoIsOpen(false);
         setPassIsOpen(true);
+    }
+    const switchToImage = () => {
+        setInfoIsOpen(false);
+        setImageIsOpen(true);
     }
 
     return(
@@ -41,7 +48,7 @@ const UserPopups =  forwardRef((props:any, ref)  => {
                 </> 
             }
             <Popup open={infoIsOpen} className="user-popup" onClose={() => setInfoIsOpen(false)}>
-                <UserInfoForm handleData={confirmation} changepass={switchToPassword}/>
+                <UserInfoForm handleData={confirmation} changepass={switchToPassword} changeimg={switchToImage}/>
                 <p onClick={() => setInfoIsOpen(o => !o)} className="cancel-text">Cancel</p>
             </Popup>
 
@@ -49,6 +56,12 @@ const UserPopups =  forwardRef((props:any, ref)  => {
             <Popup open={passIsOpen} className="user-popup">
                 <UserPassForm handleData={confirmation}/>
                 <p onClick={() => setPassIsOpen(false)} className="cancel-text-password">Cancel</p>   
+            </Popup>
+
+            {/*IMAGE SETTINGS*/}
+            <Popup open={imageIsOpen} className="user-popup">
+                <UploadImage handleData={confirmation}/>
+                <p onClick={() => setImageIsOpen(false)} className="cancel-text-password">Cancel</p>   
             </Popup>
 
             {/*CONFIRMATION*/}

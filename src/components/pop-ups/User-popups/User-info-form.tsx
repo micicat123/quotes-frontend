@@ -1,7 +1,7 @@
 import axios from "axios";
 import { SyntheticEvent, useEffect, useState } from "react";
 
-const UserInfoForm =  (props: {handleData: Function, changepass: Function})  => {
+const UserInfoForm =  (props: {handleData: Function, changepass: Function, changeimg: Function})  => {
 
     const [email, setEmail] = useState('');
     const [first_name, setFirstName] = useState('');
@@ -88,7 +88,7 @@ const UserInfoForm =  (props: {handleData: Function, changepass: Function})  => 
 
                 <div className="name-surname-popup">
                     <button type="button" className="medium-button yellow-background" onClick={() => props.changepass()}>Change password</button>
-                    <button type="button" disabled className="medium-button orange-background">Change profile picture</button>
+                    <button type="button" className="medium-button orange-background" onClick={() => props.changeimg()}>Change profile picture</button>
                 </div>
                 
                 <div className="name-surname flex-buttons">

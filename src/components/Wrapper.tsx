@@ -18,7 +18,8 @@ const Wrapper = (props:any) => {
             data.first_name,  
             data.last_name,
             data.email,
-            data.password
+            data.password,
+            data.picture
           ))
         }catch(err){
           console.log("Couldn't get authenticated user!");}

@@ -135,10 +135,6 @@ nav{
   border: none;
 }
 
-.profile-photo-circle{
-  background-image: url('/public/pictures/profile-photo.png');
-  background-position: center;
-}
 .add-quote-circle{
   background-image: url('/public/pictures/add-button-white.png');
 }
@@ -457,6 +453,7 @@ nav{
 .profile-photo-small{
   height: 1.625rem;
   width: 1.625rem;
+  border-radius: 50%;
 }
 
 .quote-settings{
@@ -639,6 +636,14 @@ nav{
   justify-content: center;
 }
 
+.picture-upload-button{
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50%;
+}
+
 .cancel-text{
   position: absolute;
   left: 34%;
@@ -795,6 +800,11 @@ input{
 
 .surname-input{
   margin-left: 2em;
+}
+
+.uploaded-profile-image{
+  border-radius: 50%;
+  object-fit: cover;
 }
 
 

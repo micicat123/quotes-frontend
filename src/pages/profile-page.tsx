@@ -14,6 +14,7 @@ const Profilepage = () => {
     const [usersQuotes, setUsersQuotes] = useState<any>([]);
     const [statistics, setStatistics] = useState<any>();
     const [redirect, setRediect] = useState(false);
+    const [image, setImage] = useState<string>('pictures/unset-profile-picture.png');
 
     const location = useLocation();
 
@@ -29,9 +30,19 @@ const Profilepage = () => {
                     setUsersQuotes(usersQuotes.concat((await axios.get(`/user/quotes/${page}/${user.user_id}`)).data));
                     setQuotesUserLiked(quotesUserLiked.concat((await axios.get(`/user/quotes-liked/${page}/${user.user_id}`)).data));
                     setUsersMostLikedQuotes(usersMostLikedQuotes.concat((await axios.get(`/user/most-liked-quotes/${page}/${user.user_id}`)).data));
+                
                 }catch(err){
                     console.log(err);
                     setRediect(true);
+                }   
+
+                try{
+                    const response = await axios.get(`uploads/picture/${user.user_id}`, {
+                        responseType: 'blob',
+                      });
+                      setImage(URL.createObjectURL(response.data));
+                }catch(err){
+                    console.log(err);
                 }   
               }
             )();
@@ -51,7 +62,7 @@ const Profilepage = () => {
             <>
                 <div className='upper-profile-page'>
                     <div className='center-div'> 
-                        <img src="pictures/profile-photo.png" className='profile-photo-large' alt="" />
+                        <img src={image} className='profile-photo-large uploaded-profile-image' alt="" />
                         <h4 className='name-surname-big'>{user.first_name} {user.last_name}</h4>
                     </div>
                     <div className='statistics'>

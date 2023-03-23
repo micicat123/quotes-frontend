@@ -12,9 +12,24 @@ const Signup = () => {
   const [password_confirm, setPasswordConfirm] = useState('');
   const [redirect, setRedirect] = useState(false);
   const [errorMessage, setErrorMessage] = useState('');
+  const [file, setFile] = useState<File | null>(null);
+  const [previewImage, setPreviewImage] = useState<string>('pictures/unset-profile-picture.png');	
+
+  const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const file = (event.target as HTMLInputElement).files?.[0];
+    if (file) {
+        setFile(file);
+        setPreviewImage(URL.createObjectURL(file));
+    }
+  };
 
   const submit = async (e: SyntheticEvent) => {
     e.preventDefault();
+
+    const formData = new FormData();
+    if (file) {
+        formData.append('image', file);
+    }
 
     try{
       await axios.post('/user', {
@@ -23,6 +38,12 @@ const Signup = () => {
         email,
         password,
         password_confirm
+      });
+
+      await axios.post(`uploads/${email}`, formData, {
+        headers: {
+          'Content-Type': 'multipart/form-data',
+        },
       });
 
       setRedirect(true);
@@ -45,7 +66,8 @@ const Signup = () => {
                 <p className='login-paragraph'>Your name will appear on quotes and your public profle.</p>
             </div>
             <div>
-                <img src="/pictures/profile-photo.png" alt="Image" className='register-photo'/>
+              <input type="file" onChange={handleFileChange} id="files" style={{display:"none"}}/>
+              <label htmlFor="files"><img src={previewImage} alt="upload profile picture" width={80} height={80} className="uploaded-profile-image"/></label>
             </div>
             <form onSubmit={submit}>
                 <label htmlFor="email"><p className='label-text'>Email</p></label>

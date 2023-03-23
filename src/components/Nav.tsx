@@ -1,15 +1,29 @@
 import axios from "axios";
-import { useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { User } from "../models/user";
 import MenuPopup from "./pop-ups/Hamburger-menu";
 import CreateOrEditQuote from "./pop-ups/Quote-popups/Create-or-edit-quote";
 import Popups from "./pop-ups/User-popups/All-user-popups";
 
-const Nav = (props: {user: User}) => {
+const Nav = (props: {user: any}) => {
     
     let navigate = useNavigate();
     const childRef = useRef<any>(null);
+    const [image, setImage] = useState<string>('pictures/unset-profile-picture.png');	
+
+    useEffect(() => {
+        if(props.user.user_id != 0 && props.user.image != ''){
+            (async () =>{
+                try{
+                    const response = await axios.get(`uploads/picture/${props.user.user_id}`, {
+                        responseType: 'blob',
+                      });
+                      setImage(URL.createObjectURL(response.data));
+                }catch(err){}   
+              })();
+        }
+      }, [props.user]);
     
     const logout = async () =>{
         await axios.post('/auth/logout');
@@ -105,7 +119,7 @@ const Nav = (props: {user: User}) => {
                                 </li>
                                 <li style={{padding:'0 16px 0 32px'}} className="hide-nav">
                                     <Link to={'/profile'} state={{ user: props.user }}>
-                                        <button className="circle profile-photo-circle"></button>
+                                        <img src={image} alt="profile" width="43" height="43" className="uploaded-profile-image"/>
                                     </Link>
                                 </li>
                                 <li>
@@ -137,7 +151,7 @@ const Nav = (props: {user: User}) => {
                                 </li>
                                 <li style={{padding:'0 16px 0 32px'}} className="hide-nav">
                                     <Link to={'/profile'} state={{ user: props.user }}>
-                                        <button className="circle profile-photo-circle"></button>
+                                        <img src={image} alt="profile" width="43" height="43" className="uploaded-profile-image"/>
                                     </Link>
                                 </li>    
                                 <li>

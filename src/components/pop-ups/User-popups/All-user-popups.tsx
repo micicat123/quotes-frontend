@@ -35,6 +35,21 @@ const UserPopups =  forwardRef((props:any, ref)  => {
         setImageIsOpen(true);
     }
 
+    function closePopup(name:string) {
+        switch (name) {
+            case "info":
+                setInfoIsOpen(false);
+                break;
+            case "pass":
+                setPassIsOpen(false);
+                break;
+            case "image":
+                setImageIsOpen(false);
+                break;
+        }
+        setInfoIsOpen(false);
+    }
+
     return(
         <>
             {/*INFO SETTINGS*/}
@@ -48,24 +63,21 @@ const UserPopups =  forwardRef((props:any, ref)  => {
                 </> 
             }
             <Popup open={infoIsOpen} className="user-popup" onClose={() => setInfoIsOpen(false)}>
-                <UserInfoForm handleData={confirmation} changepass={switchToPassword} changeimg={switchToImage}/>
-                <p onClick={() => setInfoIsOpen(o => !o)} className="cancel-text">Cancel</p>
+                <UserInfoForm handleData={confirmation} changepass={switchToPassword} changeimg={switchToImage} close={closePopup}/>
             </Popup>
 
             {/*PASSWORD SETTINGS*/}
-            <Popup open={passIsOpen} className="user-popup">
-                <UserPassForm handleData={confirmation}/>
-                <p onClick={() => setPassIsOpen(false)} className="cancel-text-password">Cancel</p>   
+            <Popup open={passIsOpen} className="user-popup" onClose={() => setPassIsOpen(false)}>
+                <UserPassForm handleData={confirmation} close={closePopup}/>  
             </Popup>
 
             {/*IMAGE SETTINGS*/}
-            <Popup open={imageIsOpen} className="user-popup">
-                <UploadImage handleData={confirmation}/>
-                <p onClick={() => setImageIsOpen(false)} className="cancel-text-password">Cancel</p>   
+            <Popup open={imageIsOpen} className="user-popup" onClose={() => setImageIsOpen(false)}>
+                <UploadImage handleData={confirmation} image={props.image} user={props.user} close={closePopup}/>
             </Popup>
 
             {/*CONFIRMATION*/}
-            <Popup open={changedIsOpen} className="user-popup">
+            <Popup open={changedIsOpen} className="user-popup" onClose={() => setChangedIsOpen(false)}>
                  <div className="profile-settings-changed">
                     <h4 className="profile-h4">Profile <span className="orange-text">settings</span></h4>
                     <p>Your settings are saved</p>         

@@ -35,7 +35,7 @@ const DeleteQuote =  (props:any)  => {
                 <p onClick={() => setIsOpen(false)} className="cancel-text-create-delete">Cancel</p>
             </Popup> 
 
-            <Popup open={Ischanged} className="confirm-popup">
+            <Popup open={Ischanged} className="confirm-popup" onClose={() => setIsChanged(false)}>
                  <div className="confirmation-quote">
                     <h5 className="profile-h4 centered-text">Your <span className="orange-text">quote</span><span> was deleted.</span></h5>
                     <div className="name-surname flex-button">

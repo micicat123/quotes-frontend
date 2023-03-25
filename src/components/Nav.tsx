@@ -13,14 +13,16 @@ const Nav = (props: {user: any}) => {
     const [image, setImage] = useState<string>('pictures/unset-profile-picture.png');	
 
     useEffect(() => {
-        if(props.user.user_id != 0 && props.user.image != ''){
+        if(props.user.user_id != 0){
             (async () =>{
                 try{
                     const response = await axios.get(`uploads/picture/${props.user.user_id}`, {
                         responseType: 'blob',
                       });
                       setImage(URL.createObjectURL(response.data));
-                }catch(err){}   
+                }catch(err){
+                    console.log(err);
+                }   
               })();
         }
       }, [props.user]);
@@ -112,7 +114,7 @@ const Nav = (props: {user: any}) => {
                                     </Link>
                                 </li>
                                 <li style={{padding:'0 24px'}} className="hide-nav">
-                                    <Popups ref={childRef}/>
+                                    <Popups ref={childRef} image={image} user={props.user}/>
                                 </li>    
                                 <li className="hide-nav">
                                     <p className="white-text" onClick={logout}>Logout</p>
@@ -144,7 +146,7 @@ const Nav = (props: {user: any}) => {
                                     </Link>
                                 </li>
                                 <li style={{padding:'0 24px'}} className="hide-nav">
-                                    <Popups orange={true} ref={childRef}/>
+                                    <Popups orange={true} ref={childRef} image={image} user={props.user}/>
                                 </li>
                                 <li className="hide-nav">
                                     <p onClick={logout} className="orange-text">Logout</p>

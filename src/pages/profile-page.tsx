@@ -43,7 +43,9 @@ const Profilepage = () => {
                       setImage(URL.createObjectURL(response.data));
                 }catch(err){
                     console.log(err);
+                    setImage('pictures/unset-profile-picture.png');
                 }   
+                
               }
             )();
         }

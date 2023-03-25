@@ -1,7 +1,7 @@
 import axios from "axios";
 import { SyntheticEvent, useEffect, useState } from "react";
 
-const UserInfoForm =  (props: {handleData: Function, changepass: Function, changeimg: Function})  => {
+const UserInfoForm =  (props: {handleData: Function, changepass: Function, changeimg: Function, close: Function})  => {
 
     const [email, setEmail] = useState('');
     const [first_name, setFirstName] = useState('');
@@ -92,7 +92,8 @@ const UserInfoForm =  (props: {handleData: Function, changepass: Function, chang
                 </div>
                 
                 <div className="name-surname flex-buttons">
-                    <input type="submit" value="Submit" className='submit-button-small'/>
+                    <input type="submit" value="Submit" className='submit-button-small popup-button'/>
+                    <p onClick={() => props.close("info")}>Cancel</p>
                 </div>
 
             </form>

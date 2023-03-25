@@ -26,7 +26,6 @@ const LandingPage = () => {
                     setRandomQuote((await axios.get('/quote/random')).data);
                     
                 }catch(err){
-                    console.log(err);
                 }
             }
         )();
@@ -69,8 +68,6 @@ const LandingPage = () => {
             <h2 className='explore-heading centered-text'>Explore the world of <br /><span className='orange-text'>fantastic quotes</span></h2>
         </div>
         <MostUpvotedQuotes NeedToLoadMore={false}/>
-
-        
       </Wrapper>
     )
 }

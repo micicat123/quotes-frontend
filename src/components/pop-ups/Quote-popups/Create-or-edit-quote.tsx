@@ -61,21 +61,16 @@ const CreateOrEditQuote =  (props:any)  => {
                         <textarea required rows={4} onChange={e => setQuote(e.target.value)} className="input-big" defaultValue={quote}/>
                         
                         <div className="name-surname flex-buttons">
-                            <input type="submit" value="Submit" className='submit-button-small'/>
+                            <input type="submit" value="Submit" className='submit-button-small popup-button'/>
+                            <p onClick={() => setQuoteIsOpen(false)}>Cancel</p>
                         </div>
-
+                    
                     </form>
-
-                </div>
-                {props.create ?
-                        <p onClick={() => setQuoteIsOpen(false)} className="cancel-text-create">Cancel</p>
-                        :
-                        <p onClick={() => setQuoteIsOpen(false)} className="cancel-text-edit">Cancel</p>
-                    }  
+                </div> 
 
             </Popup> 
 
-            <Popup open={Ischanged} className="confirm-popup">
+            <Popup open={Ischanged} className="confirm-popup" onClose={() => setIsChanged(false)}>
                  <div className="confirmation-quote">
                     {props.create ?
                         <h5 className="profile-h4 centered-text">Your <span className="orange-text">quote</span><span> was created.</span></h5>

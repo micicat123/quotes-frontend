@@ -12,7 +12,7 @@ const MappedQuotes = (props: any) => {
     const [user, setUser] = useState(new User());
     const [decisions, setDecisions] = useState([]);
     let status = 1;
-    let image = 'pictures/unset-profile-picture.png';
+    let image:any = 'pictures/unset-profile-picture.png';
     const [mappedData, setMappedData] = useState<React.ReactNode[]>([]);
     
     useEffect(() => {
@@ -42,7 +42,7 @@ const MappedQuotes = (props: any) => {
                 if (props.quotes.length > 0 && props.quotes[0].user.first_name != ''){
                     setMappedData(await Promise.all(props.quotes.map(async (quote: Quote) => {
                         getStatus(quote.quote_id);
-                        const image = await getUsersPicture(quote.user.user_id, quote.user.picture);
+                        image = await getUsersPicture(quote.user.user_id, quote.user.picture);
                         return (
                             <div className="quote-card" key={quote.quote_id}>
                                 <div className="voting">
@@ -114,15 +114,12 @@ const MappedQuotes = (props: any) => {
     }; 
 
     const getUsersPicture = async (user_id:number, image: string) => {
-        if (image && user_id){
-            try{
-                const response = await axios.get(`uploads/picture/${user_id}`, {
-                    responseType: 'blob',
-                  });
-                  return URL.createObjectURL(response.data);
-            }catch(err){}
-        }  
-        return 'pictures/unset-profile-picture.png';
+        try{
+            const response = await axios.get(`uploads/picture/${user_id}`, {
+            responseType: 'blob',
+            });
+            return URL.createObjectURL(response.data);
+        }catch(err){}
     }
 
     return(  

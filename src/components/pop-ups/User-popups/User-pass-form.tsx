@@ -1,7 +1,7 @@
 import axios from "axios";
 import { SyntheticEvent, useState } from "react";
 
-const UserPassForm =  (props: {handleData: Function})  => {
+const UserPassForm =  (props: {handleData: Function, close:Function})  => {
 
     const [old_password, setOldPassword] = useState('');
     const [password, setPassword] = useState('');
@@ -66,7 +66,8 @@ const UserPassForm =  (props: {handleData: Function})  => {
                 <div className='error-message'>{errorMessage}</div>
                 
                 <div className="name-surname flex-buttons">
-                    <input type="submit" value="Submit" className='submit-button-small'/>
+                    <input type="submit" value="Submit" className='submit-button-small popup-button'/>
+                    <p onClick={() => props.close("pass")}>Cancel</p>
                 </div>
 
             </form>

@@ -28,7 +28,7 @@ const DeleteQuote =  (props:any)  => {
                 <div className="crete-update-quote">
                     <h4 className="profile-h4">Are you sure?</h4>        
                     <p>You can post quotes. You can delete them on your profile.</p>
-                    <div className="name-surname flex-buttons">
+                    <div className="flex-buttons">
                         <input type="submit" value="Delete" className='submit-button-small' onClick={submit}/>
                     </div>
                 </div>    
@@ -38,7 +38,7 @@ const DeleteQuote =  (props:any)  => {
             <Popup open={Ischanged} className="confirm-popup" onClose={() => setIsChanged(false)}>
                  <div className="confirmation-quote">
                     <h5 className="profile-h4 centered-text">Your <span className="orange-text">quote</span><span> was deleted.</span></h5>
-                    <div className="name-surname flex-button">
+                    <div className="flex-buttons">
                         <input type="submit" value="Close" className='submit-button-small centered-text' onClick={() => {setIsChanged(false); window.location.reload();}}/>
                     </div>
                 </div>    

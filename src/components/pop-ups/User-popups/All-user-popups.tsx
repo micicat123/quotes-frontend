@@ -81,7 +81,7 @@ const UserPopups =  forwardRef((props:any, ref)  => {
                  <div className="profile-settings-changed">
                     <h4 className="profile-h4">Profile <span className="orange-text">settings</span></h4>
                     <p>Your settings are saved</p>         
-                    <div className="name-surname flex-buttons">
+                    <div className="flex-buttons">
                         <input type="submit" value="Close" className='submit-button-small' onClick={() => {setChangedIsOpen(false); window.location.reload();}}/>
                     </div>
                 </div>    

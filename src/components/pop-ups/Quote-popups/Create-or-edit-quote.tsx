@@ -60,7 +60,7 @@ const CreateOrEditQuote =  (props:any)  => {
 
                         <textarea required rows={4} onChange={e => setQuote(e.target.value)} className="input-big" defaultValue={quote}/>
                         
-                        <div className="name-surname flex-buttons">
+                        <div className="flex-buttons">
                             <input type="submit" value="Submit" className='submit-button-small popup-button'/>
                             <p onClick={() => setQuoteIsOpen(false)}>Cancel</p>
                         </div>
@@ -77,7 +77,7 @@ const CreateOrEditQuote =  (props:any)  => {
                         :
                         <h5 className="profile-h4 centered-text">Your <span className="orange-text">quote</span><span> was edited.</span></h5>
                     }
-                    <div className="name-surname flex-button">
+                    <div className="flex-buttons">
                         <input type="submit" value="Close" className='submit-button-small centered-text' onClick={() => {setIsChanged(false); window.location.reload();}}/>
                     </div>
                 </div>    

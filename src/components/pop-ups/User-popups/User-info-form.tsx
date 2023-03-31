@@ -91,7 +91,7 @@ const UserInfoForm =  (props: {handleData: Function, changepass: Function, chang
                     <button type="button" className="medium-button orange-background" onClick={() => props.changeimg()}>Change profile picture</button>
                 </div>
                 
-                <div className="name-surname flex-buttons">
+                <div className="flex-buttons">
                     <input type="submit" value="Submit" className='submit-button-small popup-button'/>
                     <p onClick={() => props.close("info")}>Cancel</p>
                 </div>

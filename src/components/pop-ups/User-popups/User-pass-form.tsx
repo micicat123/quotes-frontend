@@ -65,7 +65,7 @@ const UserPassForm =  (props: {handleData: Function, close:Function})  => {
 
                 <div className='error-message'>{errorMessage}</div>
                 
-                <div className="name-surname flex-buttons">
+                <div className="flex-buttons">
                     <input type="submit" value="Submit" className='submit-button-small popup-button'/>
                     <p onClick={() => props.close("pass")}>Cancel</p>
                 </div>

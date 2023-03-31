@@ -41,7 +41,7 @@ function UploadImage(props: {handleData: Function, image:any, user:User, close:F
         <form onSubmit={handleSubmit}>
             <input type="file" onChange={handleFileChange} id="files" style={{display:"none"}}/>
             <label htmlFor="files" className='button picture-upload-button'>Upload new image</label>
-            <div className="name-surname flex-buttons">
+            <div className="flex-buttons">
               <input type="submit" value="Submit" className='submit-button-small popup-button'/>
               <p onClick={() => props.close("image")}>Cancel</p>
             </div>

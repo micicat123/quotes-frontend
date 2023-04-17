@@ -14,7 +14,9 @@ function UploadImage(props: {handleData: Function, image:any, user:User, close:F
     }
   };
 
-  const handleSubmit = async () => {
+  const handleSubmit = async (e: SyntheticEvent) => {
+    e.preventDefault();
+
     const formData = new FormData();
     if (file) {
         formData.append('image', file);
@@ -30,6 +32,7 @@ function UploadImage(props: {handleData: Function, image:any, user:User, close:F
     } catch (err) {
       console.log(err);
     }
+    window.location.reload();
   };
 
   return (
